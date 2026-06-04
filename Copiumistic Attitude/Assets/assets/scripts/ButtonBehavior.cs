@@ -8,36 +8,32 @@ public class ButtonBehavior : MonoBehaviour,
     IPointerExitHandler, 
     IPointerClickHandler
 {
-    [SerializeField] private Sprite imgHover;
-    [SerializeField] private Sprite imgDefault;
-    [SerializeField] private Sprite imgClicked;
-    
-    private Button button;
-
+    [SerializeField] private float delay;
+    private Animator anim;
     void Start()
     {
-        button = GetComponent<Button>();
+        anim = GetComponent<Animator>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        button.image.sprite = imgHover;
+        transform.localScale = new Vector3(1.08f, 2.08f, 1.08f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        button.image.sprite = imgDefault;
+        transform.localScale = new Vector3(1.3f, 1, 1);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        StartCoroutine(buttonClicked());
+        StartCoroutine(leverFlicked());
     }
 
-    IEnumerator buttonClicked()
+    IEnumerator leverFlicked()
     {
-        button.image.sprite = imgClicked;
-        yield return new WaitForSeconds(0.05f);
-        button.image.sprite = imgDefault;
+        anim.SetBool("down", true);
+        yield return new WaitForSeconds(delay);
+        anim.SetBool("down", false);
     }
 }

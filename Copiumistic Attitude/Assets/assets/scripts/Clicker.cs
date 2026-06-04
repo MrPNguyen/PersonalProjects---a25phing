@@ -17,7 +17,7 @@ public class Clicker : MonoBehaviour
     private void Start()
     {
         gain = 1;
-        Score = 200f;
+        Score = 0f;
     }
 
     private void Update()
@@ -27,7 +27,6 @@ public class Clicker : MonoBehaviour
         {
             Score = 0;
         }
-        Debug.Log(Score);
     }
 
     public void ScoreGain()
