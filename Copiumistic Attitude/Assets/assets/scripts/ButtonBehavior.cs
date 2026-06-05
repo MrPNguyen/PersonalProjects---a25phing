@@ -17,12 +17,12 @@ public class ButtonBehavior : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        transform.localScale = new Vector3(1.08f, 2.08f, 1.08f);
+        transform.localScale = new Vector3(1.08f, 1.08f, 1.08f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.localScale = new Vector3(1.3f, 1, 1);
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void OnPointerClick(PointerEventData eventData)
