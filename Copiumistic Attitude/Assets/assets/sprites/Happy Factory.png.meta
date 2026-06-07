@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 74f863c61d8e7ef44aa21a40292d27b1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4000008797054660312
+    second: Happy Factory_0
+  - first:
+      213: -3329521542063148644
+    second: Happy Factory_1
+  - first:
+      213: 3151641556832655018
+    second: Happy Factory_2
+  - first:
+      213: 4771266100325900434
+    second: Happy Factory_3
+  - first:
+      213: -5436006183750303178
+    second: Happy Factory_4
+  - first:
+      213: 1058695137215193774
+    second: Happy Factory_5
+  - first:
+      213: -5961592411647760143
+    second: Happy Factory_6
+  - first:
+      213: 2773913204143880914
+    second: Happy Factory_7
+  - first:
+      213: -9138380033188638228
+    second: Happy Factory_8
+  - first:
+      213: 4153728119104185402
+    second: Happy Factory_9
+  - first:
+      213: -1297091788505108433
+    second: Happy Factory_10
+  - first:
+      213: 893964694745526693
+    second: Happy Factory_11
+  - first:
+      213: -3144357518367435227
+    second: Happy Factory_12
+  - first:
+      213: -1237413672168551016
+    second: Happy Factory_13
+  - first:
+      213: 1487429068311139279
+    second: Happy Factory_14
+  - first:
+      213: -9109748714384351525
+    second: Happy Factory_15
+  - first:
+      213: -1863768134682775061
+    second: Happy Factory_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Happy Factory_0
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1761
+        width: 279
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de61e6dec2e28730800000000000000
+      internalID: 4000008797054660312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_1
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1792
+        width: 326
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91b05d4cc92bc1d0800000000000000
+      internalID: -3329521542063148644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_2
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1677
+        width: 220
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa69e5e3c41ecbb20800000000000000
+      internalID: 3151641556832655018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_3
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 1677
+        width: 219
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290e9ce2d31f63240800000000000000
+      internalID: 4771266100325900434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_4
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1677
+        width: 279
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6328cb45d2d6f84b0800000000000000
+      internalID: -5436006183750303178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_5
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 1792
+        width: 219
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea2252b3e9d31be00800000000000000
+      internalID: 1058695137215193774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_6
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 1792
+        width: 326
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f82218994b244da0800000000000000
+      internalID: -5961592411647760143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_7
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 1785
+        width: 278
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2daf2c2cc5bee7620800000000000000
+      internalID: 2773913204143880914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_8
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 1789
+        width: 315
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1d44be6c3fd2180800000000000000
+      internalID: -9138380033188638228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_9
+      rect:
+        serializedVersion: 2
+        x: 3005
+        y: 1788
+        width: 298
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34a1c887b105a930800000000000000
+      internalID: 4153728119104185402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_10
+      rect:
+        serializedVersion: 2
+        x: 3329
+        y: 1791
+        width: 238
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20b31104edcffde0800000000000000
+      internalID: -1297091788505108433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_11
+      rect:
+        serializedVersion: 2
+        x: 3593
+        y: 1677
+        width: 279
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a13c084720086c00800000000000000
+      internalID: 893964694745526693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_12
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 987
+        width: 83
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52651ee1f7ffc54d0800000000000000
+      internalID: -3144357518367435227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_13
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 1300
+        width: 471
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d8e2e32d2d3dee0800000000000000
+      internalID: -1237413672168551016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_14
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 983
+        width: 253
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc3964d5bd864a410800000000000000
+      internalID: 1487429068311139279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_15
+      rect:
+        serializedVersion: 2
+        x: 2014
+        y: 982
+        width: 277
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde9c0e4fcba39180800000000000000
+      internalID: -9109748714384351525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happy Factory_16
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 986
+        width: 91
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be17a8491c09226e0800000000000000
+      internalID: -1863768134682775061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Happy Factory_0: 4000008797054660312
+      Happy Factory_1: -3329521542063148644
+      Happy Factory_10: -1297091788505108433
+      Happy Factory_11: 893964694745526693
+      Happy Factory_12: -3144357518367435227
+      Happy Factory_13: -1237413672168551016
+      Happy Factory_14: 1487429068311139279
+      Happy Factory_15: -9109748714384351525
+      Happy Factory_16: -1863768134682775061
+      Happy Factory_2: 3151641556832655018
+      Happy Factory_3: 4771266100325900434
+      Happy Factory_4: -5436006183750303178
+      Happy Factory_5: 1058695137215193774
+      Happy Factory_6: -5961592411647760143
+      Happy Factory_7: 2773913204143880914
+      Happy Factory_8: -9138380033188638228
+      Happy Factory_9: 4153728119104185402
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,22 +1,19 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Shop : MonoBehaviour,
+public class HandleTooltip : MonoBehaviour,
     IPointerEnterHandler,
     IPointerExitHandler
-
 {
-    [SerializeField] private Animator animator;
+    public Items item;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        animator.SetBool("open", true);
-        animator.SetBool("close", false);
+        TooltipUI.Instance.Show(item, item.index, item.unlocked, item.maxed);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        animator.SetBool("open", false);
-        animator.SetBool("close", true);
+        TooltipUI.Instance.Hide();
     }
 }

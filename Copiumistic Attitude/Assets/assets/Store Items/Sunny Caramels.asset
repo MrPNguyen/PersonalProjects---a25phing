@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe43a83753af4386d4d7e35726bdd, type: 3}
   m_Name: Sunny Caramels
   m_EditorClassIdentifier: Assembly-CSharp::Items
+  index: 0
   name: Sunny Caramels
   prices: 0a00000064000000e8030000d007000010270000
   description: To lighten the mood on any day! Increase thoughts per click through
     sunlight.
-  img: {fileID: 0}
+  unlocked: 1
+  maxed: 0

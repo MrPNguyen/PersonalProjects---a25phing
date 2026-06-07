@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9efe43a83753af4386d4d7e35726bdd, type: 3}
-  m_Name: Door 2
+  m_Name: Light Door
   m_EditorClassIdentifier: Assembly-CSharp::Items
   name: The Second Door
   prices: 80841e00

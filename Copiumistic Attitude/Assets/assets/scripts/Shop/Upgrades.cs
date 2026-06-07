@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,50 +10,28 @@ public class Upgrades : MonoBehaviour
     [Header("References")]
     [SerializeField] private Clicker clicker;
     
-    [SerializeField] private GameObject btnIncreaseGain;
-    [SerializeField] private TMP_Text increasePriceText;
-    
-    [SerializeField] private GameObject btnAutoGain;
-    [SerializeField] private TMP_Text autoPriceText;
-
+    [SerializeField] private List<Items> shopItems;
     
     [Header("Values")]
-    private int[] increasePrice;
-    private int[] autoIncreasePrice;
-    private int indexIncrease;
-    private int indexAutoIncrease;
     [SerializeField] private float duration;
-    private bool autoUnlocked;
 
 
     private void Awake()
     {
-        indexIncrease = 0;
-        indexAutoIncrease = 0;
-        
-        increasePrice = new int[4];
-        increasePrice[0] = 100;
-        increasePrice[1] = 300;
-        increasePrice[2] = 500;
-        increasePrice[3] = 1000;
-
-        autoIncreasePrice = new int[4];
-        autoIncreasePrice[0] = 200;
-        autoIncreasePrice[1] = 400;
-        autoIncreasePrice[2] = 800;
-        autoIncreasePrice[3] = 1000;
     }
 
     private void Start()
     {
-        autoUnlocked = false;
-        increasePriceText.text = $"{increasePrice[0]}$";
-        autoPriceText.text = $"{autoIncreasePrice[0]}$";
+        shopItems[0].unlocked = true;
+        foreach (Items item in shopItems)
+        {
+            item.index = 0;
+        }
     }
 
     private void Update()
     {
-        switch (indexIncrease)
+        /*switch (indexIncrease)
         {
             case 0:
                 increasePriceText.text = $"{increasePrice[indexIncrease]}$";
@@ -91,9 +70,44 @@ public class Upgrades : MonoBehaviour
                     autoPriceText.text = $"Maxed Out";
                     break;
             }
-        }
+        }*/
     }
 
+    public void SunnyCaramel()
+    {
+        if (clicker.Score >= shopItems[0].prices[shopItems[0].index])
+        {
+            switch (shopItems[0].index)
+            {
+                case 0:
+                    clicker.gain += 2;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.gain += 5;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.gain += 10;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.gain += 20;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].maxed = true;
+                    break;
+                    
+            }
+        }
+    }
+    
+    /*
     public void IncreaseGain()
     {
         if (clicker.Score >= increasePrice[indexIncrease])
@@ -170,7 +184,7 @@ public class Upgrades : MonoBehaviour
         {
             StartCoroutine(InsufficientFundsRoutine(btnAutoGain.GetComponent<Image>()));
         }
-    }
+    }*/
 
     private IEnumerator InsufficientFundsRoutine(Image buttoncolor)
     {
