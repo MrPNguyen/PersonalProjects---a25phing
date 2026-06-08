@@ -6,10 +6,6 @@ public class Shop : MonoBehaviour
     [SerializeField] private Animator animator;
     private bool shopIsOpen;
 
-    void Update()
-    {
-        Debug.Log(shopIsOpen);
-    }
     public void OpenShop()
     {
         if (!shopIsOpen)

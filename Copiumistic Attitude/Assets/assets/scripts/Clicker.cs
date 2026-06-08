@@ -18,7 +18,7 @@ public class Clicker : MonoBehaviour
     private void Start()
     {
         gain = 1;
-        Score = 0f;
+        Score = 10000000f;
     }
 
     private void Update()
@@ -34,6 +34,11 @@ public class Clicker : MonoBehaviour
     {
         Score += gain;
         scoreText.text = Score.ToString();
+        SpawnSpeechBubbles();
+    }
+
+    public void SpawnSpeechBubbles()
+    {
         StartCoroutine(ScoreGainBehavoiurroutine());
     }
 
@@ -70,4 +75,5 @@ public class Clicker : MonoBehaviour
         img.color = new Color(1, 1, 1, 0);
         Destroy(text.gameObject);
     }
+    
 }
