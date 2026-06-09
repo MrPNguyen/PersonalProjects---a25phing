@@ -18,7 +18,7 @@ public class Clicker : MonoBehaviour
     private void Start()
     {
         gain = 1;
-        Score = 10000000f;
+        Score = 200000000f;
     }
 
     private void Update()

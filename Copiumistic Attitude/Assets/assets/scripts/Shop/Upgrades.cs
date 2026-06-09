@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Upgrades : MonoBehaviour
@@ -22,6 +24,21 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private Image darkDoorButton;
     [SerializeField] private Image lightDoorButton;
     
+    [SerializeField] private List<Animator> letterAnims;
+    [SerializeField] private List<TextMeshProUGUI> letterInfoObjects;
+    
+    [Header("Texts to the letters")]
+    [SerializeField, TextArea(5, 2)] private List<string> momLetterInfos;
+    [SerializeField, TextArea(5, 2)] private List<string> dadLetterInfos;
+    [SerializeField, TextArea(5, 2)] private List<string> sisterLetterInfos;
+    [SerializeField, TextArea(5, 2)] private List<string> drHartLetterInfos;
+    [SerializeField, TextArea(5, 2)] private List<string> mindLetterInfos;
+    
+    [Header("Ending")]
+    [SerializeField] private GameObject ending;
+    [SerializeField] private Animator endingAnim;
+    private Animator shopAnim;
+    
     [Header("Values")]
     [SerializeField] private float duration;
 
@@ -33,6 +50,7 @@ public class Upgrades : MonoBehaviour
     
     private void Start()
     {
+        shopAnim = GetComponent<Animator>();
         shopItems[0].unlocked = true;
         foreach (Items item in shopItems)
         {
@@ -208,12 +226,16 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[0].prices[shopItems[0].index];
                     shopItems[0].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[3].SetText(drHartLetterInfos[0]);
+                    letterAnims[3].SetTrigger("send");
                     break;
                 case 1:
                     clicker.gain += 5;
                     clicker.Score -= shopItems[0].prices[shopItems[0].index];
                     shopItems[0].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[1].SetText(dadLetterInfos[0]);
+                    letterAnims[1].SetTrigger("send");
                     break;
                 case 2:
                     clicker.gain += 10;
@@ -226,6 +248,8 @@ public class Upgrades : MonoBehaviour
                     clicker.gain += 20;
                     clicker.Score -= shopItems[0].prices[shopItems[0].index];
                     shopItems[0].maxed = true;
+                    letterInfoObjects[2].SetText(sisterLetterInfos[0]);
+                    letterAnims[2].SetTrigger("send");
                     break;
                     
             }
@@ -246,6 +270,8 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[1].prices[shopItems[1].index];
                     shopItems[1].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[0].SetText(momLetterInfos[0]);
+                    letterAnims[0].SetTrigger("send");
                     break;
                 case 1:
                     clicker.gain += 100;
@@ -259,11 +285,15 @@ public class Upgrades : MonoBehaviour
                     shopItems[1].index++;
                     shopItems[2].unlocked = true;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[2].SetText(sisterLetterInfos[1]);
+                    letterAnims[2].SetTrigger("send");
                     break;
                 case 3:
                     clicker.gain += 1000;
                     clicker.Score -= shopItems[1].prices[shopItems[1].index];
                     shopItems[1].maxed = true;
+                    letterInfoObjects[3].SetText(sisterLetterInfos[2]);
+                    letterAnims[3].SetTrigger("send");
                     break;
                     
             }
@@ -279,11 +309,15 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
                     shopItems[2].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[0].SetText(momLetterInfos[1]);
+                    letterAnims[0].SetTrigger("send");
                     break;
                 case 1:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
                     shopItems[2].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[4].SetText(mindLetterInfos[0]);
+                    letterAnims[4].SetTrigger("send");
                     break;
                 case 2:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
@@ -294,6 +328,8 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
                     shopItems[3].unlocked = true;
                     shopItems[2].maxed = true;
+                    letterInfoObjects[3].SetText(drHartLetterInfos[1]);
+                    letterAnims[3].SetTrigger("send");
                     break;
                     
             }
@@ -309,21 +345,29 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
                     shopItems[3].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[1].SetText(dadLetterInfos[1]);
+                    letterAnims[1].SetTrigger("send");
                     break;
                 case 1:
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
                     shopItems[3].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[0].SetText(momLetterInfos[2]);
+                    letterAnims[0].SetTrigger("send");
                     break;
                 case 2:
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
                     shopItems[3].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[4].SetText(mindLetterInfos[1]);
+                    letterAnims[4].SetTrigger("send");
                     break;
                 case 3:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
                     shopItems[4].unlocked = true;
                     shopItems[3].maxed = true;
+                    letterInfoObjects[1].SetText(dadLetterInfos[2]);
+                    letterAnims[1].SetTrigger("send");
                     break;
                     
             }
@@ -338,6 +382,8 @@ public class Upgrades : MonoBehaviour
             TooltipUI.Instance.Refresh();
             shopItems[5].unlocked = true;
             shopItems[4].maxed = true;
+            letterInfoObjects[4].SetText(mindLetterInfos[3]);
+            letterAnims[4].SetTrigger("send");
         }
     }
     public void Mint()
@@ -351,23 +397,31 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[2].SetText(sisterLetterInfos[2]);
+                    letterAnims[2].SetTrigger("send");
                     break;
                 case 1:
                     clicker.gain += 800;
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[4].SetText(mindLetterInfos[4]);
+                    letterAnims[4].SetTrigger("send");
                     break;
                 case 2:
                     clicker.gain += 1000;
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].index++;
                     TooltipUI.Instance.Refresh();
+                    letterInfoObjects[3].SetText(drHartLetterInfos[3]);
+                    letterAnims[3].SetTrigger("send");
                     break;
                 case 3:
                     clicker.gain += 2000;
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].maxed = true;
+                    letterInfoObjects[4].SetText(mindLetterInfos[2]);
+                    letterAnims[4].SetTrigger("send");
                     break;
             }
         }
@@ -379,7 +433,7 @@ public class Upgrades : MonoBehaviour
         {
             clicker.Score = 0;
             clicker.gain = 0;
-            //Add transition to prologue bad ending
+            StartCoroutine(BadEnding());
             //Broken machine sound effect
         }
     }
@@ -390,7 +444,7 @@ public class Upgrades : MonoBehaviour
         {
             clicker.Score = 0;
             clicker.gain = 0;
-            //Add transition to prologue good ending
+            StartCoroutine(GoodEnding());
             //Broken machine sound effect
         }
     }
@@ -410,10 +464,30 @@ public class Upgrades : MonoBehaviour
         
         buttoncolor.color = endColor;
     }
-    /*
-     Upgrade 1: gain goes + 2
-     Upgrade 2: Automatic gain. bool "hasUnlocked" becomes true on the first unlock and each upgrade after
-     reduces delay
-     more currencies?
-     */
+   
+    private IEnumerator GoodEnding()
+    {
+        shopAnim.SetBool("open", false);
+        shopAnim.SetBool("close", true);
+        ending.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        //Make WaitForSeconds longer when sound effect is implemented
+        
+        endingAnim.SetTrigger("good");
+        //SceneManager.LoadSceneAsync("GoodEnding", LoadSceneMode.Single);
+    }
+    
+    private IEnumerator BadEnding()
+    {
+        shopAnim.SetBool("open", false);
+        shopAnim.SetBool("close", true);
+        ending.gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(0.5f);
+        //Make WaitForSeconds longer when sound effect is implemented
+        
+        endingAnim.SetTrigger("bad");
+        //SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
+    }
 }
