@@ -48,6 +48,16 @@ public class Upgrades : MonoBehaviour
     [Header("Cat")]
     [SerializeField] private GameObject cat;
     
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource envelopeAudioSource;
+    [SerializeField] private AudioClip purchaseSound;
+    [SerializeField] private AudioClip insufficientFundsSound;
+    [SerializeField] private AudioClip envelopeSound;
+    [SerializeField] private AudioClip machineBreakingSound;
+    [SerializeField] private AudioClip machineShuttingDownSound;
+    [SerializeField] private GameObject backgroundMusic;
+    
     private void Start()
     {
         shopAnim = GetComponent<Animator>();
@@ -228,6 +238,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[3].SetText(drHartLetterInfos[0]);
                     letterAnims[3].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.gain += 5;
@@ -236,6 +247,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[1].SetText(dadLetterInfos[0]);
                     letterAnims[1].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 2:
                     clicker.gain += 10;
@@ -250,9 +262,11 @@ public class Upgrades : MonoBehaviour
                     shopItems[0].maxed = true;
                     letterInfoObjects[2].SetText(sisterLetterInfos[0]);
                     letterAnims[2].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                     
             }
+            audioSource.PlayOneShot(purchaseSound);
         }
         else
         {
@@ -272,6 +286,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[0].SetText(momLetterInfos[0]);
                     letterAnims[0].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.gain += 100;
@@ -287,6 +302,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[2].SetText(sisterLetterInfos[1]);
                     letterAnims[2].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 3:
                     clicker.gain += 1000;
@@ -294,6 +310,7 @@ public class Upgrades : MonoBehaviour
                     shopItems[1].maxed = true;
                     letterInfoObjects[3].SetText(sisterLetterInfos[2]);
                     letterAnims[3].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                     
             }
@@ -311,6 +328,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[0].SetText(momLetterInfos[1]);
                     letterAnims[0].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
@@ -318,6 +336,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[4].SetText(mindLetterInfos[0]);
                     letterAnims[4].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 2:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
@@ -330,6 +349,7 @@ public class Upgrades : MonoBehaviour
                     shopItems[2].maxed = true;
                     letterInfoObjects[3].SetText(drHartLetterInfos[1]);
                     letterAnims[3].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                     
             }
@@ -347,6 +367,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[1].SetText(dadLetterInfos[1]);
                     letterAnims[1].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
@@ -354,6 +375,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[0].SetText(momLetterInfos[2]);
                     letterAnims[0].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 2:
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
@@ -361,6 +383,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[4].SetText(mindLetterInfos[1]);
                     letterAnims[4].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 3:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
@@ -368,6 +391,7 @@ public class Upgrades : MonoBehaviour
                     shopItems[3].maxed = true;
                     letterInfoObjects[1].SetText(dadLetterInfos[2]);
                     letterAnims[1].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                     
             }
@@ -384,6 +408,7 @@ public class Upgrades : MonoBehaviour
             shopItems[4].maxed = true;
             letterInfoObjects[4].SetText(mindLetterInfos[3]);
             letterAnims[4].SetTrigger("send");
+            envelopeAudioSource.PlayOneShot(envelopeSound);
         }
     }
     public void Mint()
@@ -399,6 +424,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[2].SetText(sisterLetterInfos[2]);
                     letterAnims[2].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.gain += 800;
@@ -407,6 +433,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[4].SetText(mindLetterInfos[4]);
                     letterAnims[4].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 2:
                     clicker.gain += 1000;
@@ -415,6 +442,7 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     letterInfoObjects[3].SetText(drHartLetterInfos[3]);
                     letterAnims[3].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 3:
                     clicker.gain += 2000;
@@ -422,6 +450,7 @@ public class Upgrades : MonoBehaviour
                     shopItems[5].maxed = true;
                     letterInfoObjects[4].SetText(mindLetterInfos[2]);
                     letterAnims[4].SetTrigger("send");
+                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
             }
         }
@@ -451,6 +480,7 @@ public class Upgrades : MonoBehaviour
 
     private IEnumerator InsufficientFundsRoutine(Image buttoncolor)
     {
+        audioSource.PlayOneShot(insufficientFundsSound);
         Color startColor = Color.red;
         Color endColor = Color.white;
 
@@ -471,11 +501,16 @@ public class Upgrades : MonoBehaviour
         shopAnim.SetBool("close", true);
         ending.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
-        //Make WaitForSeconds longer when sound effect is implemented
+        backgroundMusic.gameObject.SetActive(false);
+        audioSource.PlayOneShot(machineBreakingSound);
+        yield return new WaitForSeconds(machineBreakingSound.length + 3f);
         
+        audioSource.PlayOneShot(machineShuttingDownSound);
         endingAnim.SetTrigger("good");
-        //SceneManager.LoadSceneAsync("GoodEnding", LoadSceneMode.Single);
+
+        yield return new WaitForSeconds(machineShuttingDownSound.length);
+
+        SceneManager.LoadSceneAsync("GoodEnding", LoadSceneMode.Single);
     }
     
     private IEnumerator BadEnding()
@@ -484,10 +519,15 @@ public class Upgrades : MonoBehaviour
         shopAnim.SetBool("close", true);
         ending.gameObject.SetActive(true);
         
-        yield return new WaitForSeconds(0.5f);
-        //Make WaitForSeconds longer when sound effect is implemented
-        
+        backgroundMusic.gameObject.SetActive(false);
+        audioSource.PlayOneShot(machineBreakingSound);
+        yield return new WaitForSeconds(machineBreakingSound.length);
+
+        audioSource.PlayOneShot(machineShuttingDownSound);
         endingAnim.SetTrigger("bad");
-        //SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
+
+        yield return new WaitForSeconds(machineShuttingDownSound.length);
+
+        SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
     }
 }

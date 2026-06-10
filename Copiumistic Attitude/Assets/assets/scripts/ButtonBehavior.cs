@@ -10,6 +10,8 @@ public class ButtonBehavior : MonoBehaviour,
 {
     [SerializeField] private float delay;
     private Animator anim;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip leverSound;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -33,6 +35,8 @@ public class ButtonBehavior : MonoBehaviour,
     IEnumerator leverFlicked()
     {
         anim.SetBool("down", true);
+        audioSource.PlayOneShot(leverSound);
+        
         yield return new WaitForSeconds(delay);
         anim.SetBool("down", false);
     }

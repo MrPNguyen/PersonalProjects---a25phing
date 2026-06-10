@@ -18,7 +18,7 @@ public class Clicker : MonoBehaviour
     private void Start()
     {
         gain = 1;
-        Score = 200000000f;
+        Score = 0f;
     }
 
     private void Update()
@@ -45,7 +45,8 @@ public class Clicker : MonoBehaviour
     private IEnumerator ScoreGainBehavoiurroutine()
     {
         GameObject text = Instantiate(speechBubbles, transform);
-
+        text.transform.SetSiblingIndex(6);
+        
         RectTransform rect = text.GetComponent<RectTransform>();
         Vector2 startpos = rect.anchoredPosition = new Vector2(
             Random.Range(-150f, 150f),

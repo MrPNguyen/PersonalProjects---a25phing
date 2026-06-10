@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe43a83753af4386d4d7e35726bdd, type: 3}
   m_Name: Happiness
   m_EditorClassIdentifier: Assembly-CSharp::Items
+  index: 3
   name: Smiley
   prices: 640000002c010000f4010000e8030000b80b0000
   description: Nothin like smile to brighten the day! automate your production through
     positivity.
-  img: {fileID: 0}
+  unlocked: 1
+  maxed: 1
