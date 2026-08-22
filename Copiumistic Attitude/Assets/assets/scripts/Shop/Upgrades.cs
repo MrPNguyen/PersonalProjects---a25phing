@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Upgrades : MonoBehaviour
 {
@@ -38,6 +38,8 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private GameObject ending;
     [SerializeField] private Animator endingAnim;
     private Animator shopAnim;
+    [SerializeField] private ScreenShake screenShake;
+    
     
     [Header("Values")]
     [SerializeField] private float duration;
@@ -225,6 +227,7 @@ public class Upgrades : MonoBehaviour
         }
     }
 
+    //Lägg till uppgraderingsnivåer och fixa när breven triggas
     public void SunnyCaramel()
     {
         if (clicker.Score >= shopItems[0].prices[shopItems[0].index] && shopItems[0].maxed == false)
@@ -500,6 +503,7 @@ public class Upgrades : MonoBehaviour
         shopAnim.SetBool("open", false);
         shopAnim.SetBool("close", true);
         ending.gameObject.SetActive(true);
+        StartCoroutine(screenShake.ScreenShakeRoutine());
 
         backgroundMusic.gameObject.SetActive(false);
         audioSource.PlayOneShot(machineBreakingSound);
@@ -518,6 +522,7 @@ public class Upgrades : MonoBehaviour
         shopAnim.SetBool("open", false);
         shopAnim.SetBool("close", true);
         ending.gameObject.SetActive(true);
+        StartCoroutine(screenShake.ScreenShakeRoutine());
         
         backgroundMusic.gameObject.SetActive(false);
         audioSource.PlayOneShot(machineBreakingSound);
@@ -530,4 +535,6 @@ public class Upgrades : MonoBehaviour
 
         SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
     }
+
+    
 }

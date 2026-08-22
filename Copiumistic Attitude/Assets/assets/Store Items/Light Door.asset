@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe43a83753af4386d4d7e35726bdd, type: 3}
   m_Name: Light Door
   m_EditorClassIdentifier: Assembly-CSharp::Items
+  index: 0
   name: The Second Door
   prices: 80841e00
   description: Accept the help. It's going to be ok.
-  img: {fileID: 0}
+  unlocked: 0
+  maxed: 0

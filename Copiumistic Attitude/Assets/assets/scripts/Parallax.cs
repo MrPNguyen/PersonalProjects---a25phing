@@ -25,7 +25,7 @@ public class Parallax : MonoBehaviour
 
             if (rt.anchoredPosition.x > imgWidth)
             {
-                rt.anchoredPosition -= Vector2.right * imgWidth * rts.Length;
+                rt.anchoredPosition -= (Vector2.right * imgWidth * rts.Length / 1.01f);
             }
         }
     }

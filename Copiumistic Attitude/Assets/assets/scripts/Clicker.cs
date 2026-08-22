@@ -49,12 +49,12 @@ public class Clicker : MonoBehaviour
         
         RectTransform rect = text.GetComponent<RectTransform>();
         Vector2 startpos = rect.anchoredPosition = new Vector2(
-            Random.Range(-150f, 150f),
+            Random.Range(-170f, 130f),
             0f
         );
         
-        float randomSize = Random.Range(0.3f, 2f);
-        Vector2 startSize = rect.localScale = new Vector2(
+        float randomSize = Random.Range(0.3f, 1.5f);
+        rect.localScale = new Vector2(
             randomSize,
             randomSize
         );
