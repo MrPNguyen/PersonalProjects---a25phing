@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: Wealth
-  prices: f4010000d0070000a00f0000401f000010270000
+  prices: fa000000bc020000c4090000401f000010270000983a00003075000080380100a0860100400d0300
   description: Become a millionaire in no time! Increase thoughts per click through
     improved wealth.
   unlocked: 0

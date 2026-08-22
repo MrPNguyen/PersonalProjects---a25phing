@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: Sunny Caramels
-  prices: 0a00000064000000e8030000d007000010270000
+  prices: 0a0000003200000064000000e8030000b80b000010270000204e000050c30000a086010020a10700
   description: To lighten the mood on any day! Increase thoughts per click through
     sunlight.
   unlocked: 1

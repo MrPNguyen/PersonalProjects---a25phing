@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: Cat
-  prices: 204e0000
+  prices: 90d00300
   description: Get yourself a companion for life! Finds thoughts for you every now
     and again.
   unlocked: 0

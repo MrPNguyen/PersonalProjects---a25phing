@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: The Door
-  prices: 40420f00
+  prices: 00e1f505
   description: Freedom.
   unlocked: 0
   maxed: 0

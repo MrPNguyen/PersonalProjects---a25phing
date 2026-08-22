@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: The Second Door
-  prices: 80841e00
+  prices: 00c2eb0b
   description: Accept the help. It's going to be ok.
   unlocked: 0
   maxed: 0

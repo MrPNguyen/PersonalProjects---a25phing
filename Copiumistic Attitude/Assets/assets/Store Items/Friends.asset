@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe43a83753af4386d4d7e35726bdd, type: 3}
   m_Name: Friends
   m_EditorClassIdentifier: Assembly-CSharp::Items
+  index: 0
   name: Friends
-  prices: e8030000b80b000088130000401f0000a0860100
+  prices: e803000088130000581b000010270000983a0000a86100003075000060ea0000a086010040420f00
   description: Become famous in no time! automate your production.
-  img: {fileID: 0}
+  unlocked: 0
+  maxed: 0
