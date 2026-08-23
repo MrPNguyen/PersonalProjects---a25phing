@@ -46,6 +46,8 @@ public class Upgrades : MonoBehaviour
 
     private float bubbletimer;
     private float timeBetweenClicks;
+
+    private int upgradesBoughtCount;
     
     [Header("Cat")]
     [SerializeField] private GameObject cat;
@@ -146,6 +148,66 @@ public class Upgrades : MonoBehaviour
                     {
                         clicker.SpawnSpeechBubbles();
                         bubbletimer = 0f;
+                    } 
+                    break;
+                case 5:
+                    timeBetweenClicks = Time.deltaTime * 8f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 6:
+                    timeBetweenClicks = Time.deltaTime * 12f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 7:
+                    timeBetweenClicks = Time.deltaTime * 15f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 8:
+                    timeBetweenClicks = Time.deltaTime * 20f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 9:
+                    timeBetweenClicks = Time.deltaTime * 36f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
                     }
                     break;
             }
@@ -215,6 +277,66 @@ public class Upgrades : MonoBehaviour
                         bubbletimer = 0f;
                     }
                     break;
+                case 5:
+                    timeBetweenClicks = Time.deltaTime * 80f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 6:
+                    timeBetweenClicks = Time.deltaTime * 95f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 7:
+                    timeBetweenClicks = Time.deltaTime * 120f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 8:
+                    timeBetweenClicks = Time.deltaTime * 145f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
+                case 9:
+                    timeBetweenClicks = Time.deltaTime * 180f;
+                    clicker.Score += timeBetweenClicks;
+                    
+                    bubbletimer += timeBetweenClicks;
+
+                    if (bubbletimer >= 1f)
+                    {
+                        clicker.SpawnSpeechBubbles();
+                        bubbletimer = 0f;
+                    }
+                    break;
             }
         }
 
@@ -225,9 +347,171 @@ public class Upgrades : MonoBehaviour
                 item.unlocked = true;
             }
         }
+
+        //Fixa timingen så att breven poppar upp på rätt tid.
+        switch (upgradesBoughtCount)
+        {
+            case 1:
+                break;
+            case 2:
+                letterInfoObjects[3].SetText(drHartLetterInfos[0]);
+                letterAnims[3].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                letterInfoObjects[1].SetText(dadLetterInfos[0]);
+                letterAnims[1].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 6:
+                letterInfoObjects[2].SetText(sisterLetterInfos[0]);
+                letterAnims[2].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                letterInfoObjects[0].SetText(momLetterInfos[0]);
+                letterAnims[0].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+            case 12:
+                letterInfoObjects[2].SetText(sisterLetterInfos[1]);
+                letterAnims[2].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 13:
+                break;
+            case 14:
+                break;
+            case 15:
+               
+                break;
+            case 16:
+                break;
+            case 17:
+                letterInfoObjects[0].SetText(momLetterInfos[1]);
+                letterAnims[0].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 18:
+                break;
+            case 19:
+                letterInfoObjects[4].SetText(mindLetterInfos[0]);
+                letterAnims[4].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 20:
+                break;
+            case 21:
+                letterInfoObjects[3].SetText(drHartLetterInfos[1]);
+                letterAnims[3].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 22:
+                break;
+            case 23:
+                break;
+            case 24:
+                break;
+            case 25:
+                letterInfoObjects[1].SetText(dadLetterInfos[1]);
+                letterAnims[1].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 26:
+                break;
+            case 27:
+                break;
+            case 28:
+                letterInfoObjects[0].SetText(momLetterInfos[2]);
+                letterAnims[0].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 29:
+                break;
+            case 30:
+                letterInfoObjects[4].SetText(mindLetterInfos[1]);
+                letterAnims[4].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 31:
+                break;
+            case 32:
+                break;
+            case 33:
+                letterInfoObjects[1].SetText(dadLetterInfos[2]);
+                letterAnims[1].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 34:
+                break;
+            case 35:
+                letterInfoObjects[4].SetText(mindLetterInfos[3]);
+                letterAnims[4].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 36:
+                break;
+            case 37:
+                break;
+            case 38:
+                letterInfoObjects[4].SetText(mindLetterInfos[4]);
+                letterAnims[4].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 39:
+                break;
+            case 40:
+                break;
+            case 41:
+                letterInfoObjects[3].SetText(drHartLetterInfos[3]);
+                letterAnims[3].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 42:
+                break;
+            case 43:
+                break;
+            case 44:
+                break;
+            case 45:
+                letterInfoObjects[2].SetText(sisterLetterInfos[2]);
+                letterAnims[2].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 46:
+                break;
+            case 47:
+                letterInfoObjects[4].SetText(mindLetterInfos[2]);
+                letterAnims[4].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 48:
+                break;
+            case 49:
+                letterInfoObjects[3].SetText(sisterLetterInfos[2]);
+                letterAnims[3].SetTrigger("send");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
+                break;
+            case 50:
+                break;
+            case 51:
+                break;
+        }
     }
 
-    //Lägg till uppgraderingsnivåer och fixa när breven triggas
+    //Lägg till upgradesBoughtCount++ på all uppgraderingar och fixa funktionaliteten av katt uppgraderingen.
     public void SunnyCaramel()
     {
         if (clicker.Score >= shopItems[0].prices[shopItems[0].index] && shopItems[0].maxed == false)
@@ -239,18 +523,12 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[0].prices[shopItems[0].index];
                     shopItems[0].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[3].SetText(drHartLetterInfos[0]);
-                    letterAnims[3].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.gain += 5;
                     clicker.Score -= shopItems[0].prices[shopItems[0].index];
                     shopItems[0].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[1].SetText(dadLetterInfos[0]);
-                    letterAnims[1].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 2:
                     clicker.gain += 10;
@@ -262,10 +540,43 @@ public class Upgrades : MonoBehaviour
                 case 3:
                     clicker.gain += 20;
                     clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    break;
+                case 4:
+                    clicker.gain += 80;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.gain += 100;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.gain += 140;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.gain += 160;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.gain += 180;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.gain += 200;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
                     shopItems[0].maxed = true;
-                    letterInfoObjects[2].SetText(sisterLetterInfos[0]);
-                    letterAnims[2].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
+                    TooltipUI.Instance.Refresh();
                     break;
                     
             }
@@ -274,6 +585,78 @@ public class Upgrades : MonoBehaviour
         else
         {
             StartCoroutine(InsufficientFundsRoutine(caramelButton.GetComponent<Image>()));
+        }
+    }
+    public void Happiness()
+    {
+        if (clicker.Score >= shopItems[2].prices[shopItems[2].index] && shopItems[2].maxed == false)
+        {
+            switch (shopItems[2].index)
+            {
+                case 0:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    shopItems[3].unlocked = true;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
+                    shopItems[2].index++;
+                    shopItems[2].maxed = true;
+                    TooltipUI.Instance.Refresh();
+                    break;
+            }
+        }
+    }
+    public void Cat()
+    {
+        if (clicker.Score >= shopItems[4].prices[shopItems[4].index] && shopItems[4].maxed == false)
+        {
+            clicker.Score -= shopItems[4].prices[shopItems[4].index];
+            cat.gameObject.SetActive(true);
+            TooltipUI.Instance.Refresh();
+            shopItems[5].unlocked = true;
+            shopItems[4].maxed = true;
         }
     }
     public void Money()
@@ -287,9 +670,6 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[1].prices[shopItems[1].index];
                     shopItems[1].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[0].SetText(momLetterInfos[0]);
-                    letterAnims[0].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.gain += 100;
@@ -298,66 +678,57 @@ public class Upgrades : MonoBehaviour
                     TooltipUI.Instance.Refresh();
                     break;
                 case 2:
+                    clicker.gain += 250;
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
                     clicker.gain += 500;
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    break;
+                case 4:
+                    clicker.gain += 800;
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.gain += 1000;
                     clicker.Score -= shopItems[1].prices[shopItems[1].index];
                     shopItems[1].index++;
                     shopItems[2].unlocked = true;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[2].SetText(sisterLetterInfos[1]);
-                    letterAnims[2].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
-                case 3:
-                    clicker.gain += 1000;
+                case 6:
+                    clicker.gain += 1250;
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.gain += 1500;
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.gain += 2000;
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.gain += 3000;
                     clicker.Score -= shopItems[1].prices[shopItems[1].index];
                     shopItems[1].maxed = true;
-                    letterInfoObjects[3].SetText(sisterLetterInfos[2]);
-                    letterAnims[3].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
+                    TooltipUI.Instance.Refresh();
                     break;
-                    
             }
         }
     }
-    public void Happiness()
-    {
-        if (clicker.Score >= shopItems[2].prices[shopItems[2].index] && shopItems[2].maxed == false)
-        {
-            switch (shopItems[2].index)
-            {
-                case 0:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    letterInfoObjects[0].SetText(momLetterInfos[1]);
-                    letterAnims[0].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
-                    break;
-                case 1:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    letterInfoObjects[4].SetText(mindLetterInfos[0]);
-                    letterAnims[4].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
-                    break;
-                case 2:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 3:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[3].unlocked = true;
-                    shopItems[2].maxed = true;
-                    letterInfoObjects[3].SetText(drHartLetterInfos[1]);
-                    letterAnims[3].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
-                    break;
-                    
-            }
-        }
-    }
+    
     public void Friends()
     {
         if (clicker.Score >= shopItems[3].prices[shopItems[3].index] && shopItems[3].maxed == false)
@@ -368,52 +739,58 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
                     shopItems[3].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[1].SetText(dadLetterInfos[1]);
-                    letterAnims[1].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
                     shopItems[3].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[0].SetText(momLetterInfos[2]);
-                    letterAnims[0].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
+                    /**/
                     break;
                 case 2:
                     clicker.Score -= shopItems[3].prices[shopItems[3].index];
                     shopItems[3].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[4].SetText(mindLetterInfos[1]);
-                    letterAnims[4].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 3:
                     clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[4].unlocked = true;
-                    shopItems[3].maxed = true;
-                    letterInfoObjects[1].SetText(dadLetterInfos[2]);
-                    letterAnims[1].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
+                    shopItems[3].index++;
+                    TooltipUI.Instance.Refresh();
                     break;
-                    
+                case 4:
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    shopItems[4].unlocked = true;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].maxed = true;
+                    TooltipUI.Instance.Refresh();
+                    break;
             }
         }
     }
-    public void Cat()
-    {
-        if (clicker.Score >= shopItems[4].prices[shopItems[4].index] && shopItems[4].maxed == false)
-        {
-            clicker.Score -= shopItems[4].prices[shopItems[4].index];
-            cat.gameObject.SetActive(true);
-            TooltipUI.Instance.Refresh();
-            shopItems[5].unlocked = true;
-            shopItems[4].maxed = true;
-            letterInfoObjects[4].SetText(mindLetterInfos[3]);
-            letterAnims[4].SetTrigger("send");
-            envelopeAudioSource.PlayOneShot(envelopeSound);
-        }
-    }
+   
     public void Mint()
     {
         if (clicker.Score >= shopItems[5].prices[shopItems[5].index] && shopItems[5].maxed == false)
@@ -425,35 +802,60 @@ public class Upgrades : MonoBehaviour
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[2].SetText(sisterLetterInfos[2]);
-                    letterAnims[2].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 1:
-                    clicker.gain += 800;
+                    clicker.gain += 700;
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[4].SetText(mindLetterInfos[4]);
-                    letterAnims[4].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 2:
                     clicker.gain += 1000;
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].index++;
                     TooltipUI.Instance.Refresh();
-                    letterInfoObjects[3].SetText(drHartLetterInfos[3]);
-                    letterAnims[3].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
                     break;
                 case 3:
+                    clicker.gain += 1400;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
                     clicker.gain += 2000;
                     clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.gain += 2600;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.gain += 3100;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.gain += 4000;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.gain += 4500;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.gain += 6000;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
                     shopItems[5].maxed = true;
-                    letterInfoObjects[4].SetText(mindLetterInfos[2]);
-                    letterAnims[4].SetTrigger("send");
-                    envelopeAudioSource.PlayOneShot(envelopeSound);
+                    TooltipUI.Instance.Refresh();
                     break;
             }
         }
@@ -466,7 +868,6 @@ public class Upgrades : MonoBehaviour
             clicker.Score = 0;
             clicker.gain = 0;
             StartCoroutine(BadEnding());
-            //Broken machine sound effect
         }
     }
     
@@ -477,7 +878,6 @@ public class Upgrades : MonoBehaviour
             clicker.Score = 0;
             clicker.gain = 0;
             StartCoroutine(GoodEnding());
-            //Broken machine sound effect
         }
     }
 
@@ -535,6 +935,4 @@ public class Upgrades : MonoBehaviour
 
         SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
     }
-
-    
 }

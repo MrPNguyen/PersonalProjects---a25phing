@@ -3203,7 +3203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1150, y: -130}
+  m_AnchoredPosition: {x: 650, y: -130}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641335065
@@ -4767,7 +4767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 650, y: -130}
+  m_AnchoredPosition: {x: 400, y: -130}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949398594
@@ -5313,10 +5313,10 @@ MonoBehaviour:
   clicker: {fileID: 139214760}
   shopItems:
   - {fileID: 11400000, guid: fd991c18677eda944bd2c3e5ee2dd0b3, type: 2}
-  - {fileID: 11400000, guid: 08466c16663d83f43a5cb72441ebc386, type: 2}
   - {fileID: 11400000, guid: a9b71d702e53ca940a96aab3e416a91c, type: 2}
-  - {fileID: 11400000, guid: cdd9a9219ce4de948b825255dd91c835, type: 2}
   - {fileID: 11400000, guid: 62fa618cea7930f49a8cd75f6c1afe7c, type: 2}
+  - {fileID: 11400000, guid: 08466c16663d83f43a5cb72441ebc386, type: 2}
+  - {fileID: 11400000, guid: cdd9a9219ce4de948b825255dd91c835, type: 2}
   - {fileID: 11400000, guid: ee0ba22e3b311b74493f772e6991cd32, type: 2}
   specialShopItems:
   - {fileID: 11400000, guid: 62a1a6c9e76ba6a4894ba4f77536ea94, type: 2}
@@ -5348,7 +5348,7 @@ MonoBehaviour:
     days. It's not about \n\tme and your father is it?\n\t\n\t\t\t\t\t\t\t\tMom"
   dadLetterInfos:
   - "Heeey sport!\n\t\n\tHow's it going in school? you got a girlfriend yet?\n\n\t\t\t\t\t\t\tDad"
-  - "\nHoney, have you made any contact with him recently\n\n\t\t\t\t\t\t\tDad"
+  - "\nHoney, have you made any contact with him recently?\n\n\t\t\t\t\t\t\tDad"
   - "\nHey can you at least make an effort to get along with her! She is your mother
     too you know!\n\n\t\t\t\t\t\t\tDad"
   sisterLetterInfos:
@@ -6157,7 +6157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1306328095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6238,7 +6238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.04}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1308282927
@@ -6814,10 +6814,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1966895431}
-  - {fileID: 1482299911}
   - {fileID: 949398593}
-  - {fileID: 1143557563}
   - {fileID: 641335064}
+  - {fileID: 1482299911}
+  - {fileID: 1143557563}
   - {fileID: 430564609}
   - {fileID: 138711263}
   - {fileID: 1514016157}
@@ -7110,7 +7110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -130}
+  m_AnchoredPosition: {x: 1150, y: -130}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482299912
@@ -9354,6 +9354,7 @@ MonoBehaviour:
   titleText: {fileID: 1580479582}
   descriptionText: {fileID: 1368999940}
   priceText: {fileID: 395661716}
+  offset: {x: 3.3, y: -1, z: 0}
 --- !u!1 &1881888774
 GameObject:
   m_ObjectHideFlags: 0
@@ -10099,7 +10100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonManager
   item: {fileID: 11400000, guid: fd991c18677eda944bd2c3e5ee2dd0b3, type: 2}
-  unlockedImg: {fileID: 0}
+  unlockedImg: {fileID: 2026186418}
   lockedImg: {fileID: 0}
   maxedImg: {fileID: 833145998}
 --- !u!1 &1977424237

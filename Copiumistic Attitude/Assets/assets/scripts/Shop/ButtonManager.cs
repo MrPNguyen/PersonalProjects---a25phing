@@ -12,7 +12,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (item.unlocked)
         {
-            if (unlockedImg != null && unlockedImg != null)
+            if (unlockedImg != null && lockedImg != null)
             {
                 unlockedImg.SetActive(true);
                 lockedImg.SetActive(false);
@@ -20,7 +20,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-            if (unlockedImg != null && unlockedImg != null)
+            if (unlockedImg != null && lockedImg != null)
             {
                 unlockedImg.SetActive(false);
                 lockedImg.SetActive(true);

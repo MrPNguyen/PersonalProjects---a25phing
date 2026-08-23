@@ -13,6 +13,8 @@ public class TooltipUI : MonoBehaviour
 
     private Items currentItem;
 
+    [SerializeField] private Vector3 offset;
+
     void Awake()
     {
         Instance =  this;
@@ -21,7 +23,10 @@ public class TooltipUI : MonoBehaviour
 
     void Update()
     {
-        panel.transform.position = Input.mousePosition + new Vector3(250f, -100f);
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Mathf.Abs(Camera.main.transform.position.z - panel.transform.position.z);
+
+        panel.transform.position = Camera.main.ScreenToWorldPoint(mousePosition) + offset;
     }
 
     public void Show(Items item, int index, bool unlocked, bool maxed)
