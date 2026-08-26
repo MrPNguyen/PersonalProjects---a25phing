@@ -17,5 +17,5 @@ MonoBehaviour:
   prices: fa000000bc020000c4090000401f000010270000983a00003075000080380100a0860100400d0300
   description: Become a millionaire in no time! Increase thoughts per click through
     improved wealth.
-  unlocked: 0
+  unlocked: 1
   maxed: 0
