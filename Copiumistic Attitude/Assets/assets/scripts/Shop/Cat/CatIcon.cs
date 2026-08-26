@@ -1,26 +1,15 @@
 using System;
-using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
-public class Cat : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CatIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Animator anim;
-    [SerializeField] private GameObject catInfo;
+    private Animator anim;
     [SerializeField] private GameObject sendCatOutText;
 
     private void Start()
     {
-        catInfo.gameObject.SetActive(false);
-    }
-
-    public void CatOut()
-    {
-        anim.SetBool("walkAway", true);
-        anim.SetBool("walkBack", false);
+        anim = GetComponent<Animator>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -62,8 +64,19 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private AudioClip machineShuttingDownSound;
     [SerializeField] private GameObject backgroundMusic;
     
+    [Header("FX")]
+    [SerializeField] private Volume globalVol;
+    private Vignette vi;
+    private ColorAdjustments ca;
+    
+    [SerializeField] private AudioSource cheeryMusic;
+    [SerializeField] private AudioSource sadMusic;
+    
+    
     private void Start()
     {
+        globalVol.profile.TryGet(out ca);
+        globalVol.profile.TryGet(out vi);
         shopAnim = GetComponent<Animator>();
         shopItems[0].unlocked = true;
         foreach (Items item in shopItems)
@@ -86,22 +99,10 @@ public class Upgrades : MonoBehaviour
 
     private void Update()
     {
-        if (shopItems[2].unlocked)
+        if (shopItems[1].unlocked)
         {
-            switch (shopItems[2].index)
+            switch (shopItems[1].index)
             {
-                case 0:
-                    timeBetweenClicks = Time.deltaTime * 1f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
                 case 1:
                     timeBetweenClicks = Time.deltaTime * 1.5f;
                     clicker.Score += timeBetweenClicks;
@@ -217,18 +218,6 @@ public class Upgrades : MonoBehaviour
         {
             switch (shopItems[3].index)
             {
-                case 0:
-                    timeBetweenClicks = Time.deltaTime * 10f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
                 case 1:
                     timeBetweenClicks = Time.deltaTime * 15f;
                     clicker.Score += timeBetweenClicks;
@@ -349,6 +338,577 @@ public class Upgrades : MonoBehaviour
         }
 
         //Fixa timingen så att breven poppar upp på rätt tid.
+    }
+    
+    //Testa flytta alla gemensamma rader kod i varddera case till botten för mer komprimerad kod
+    public void SunnyCaramel()
+    {
+        if (clicker.Score >= shopItems[0].prices[shopItems[0].index] && !shopItems[0].maxed)
+        {
+            switch (shopItems[0].index)
+            {
+                case 0:
+                    clicker.gain += 2;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    
+                    ca.saturation.value -= 2;
+                    vi.intensity.value += 0.01f;
+                    cheeryMusic.volume -= 0.02f;
+                    sadMusic.volume += 0.02f;
+                    
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.gain += 5;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.gain += 10;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    shopItems[1].unlocked = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.gain += 20;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
+                    clicker.gain += 80;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.gain += 100;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.gain += 140;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.gain += 160;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.gain += 180;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.gain += 200;
+                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
+                    shopItems[0].maxed = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                    
+            }
+            audioSource.PlayOneShot(purchaseSound);
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(caramelButton.GetComponent<Image>()));
+        }
+    }
+    public void Happiness()
+    {
+        if (clicker.Score >= shopItems[1].prices[shopItems[1].index] && !shopItems[1].maxed && shopItems[1].unlocked)
+        {
+            switch (shopItems[1].index)
+            {
+                case 0:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    shopItems[2].unlocked = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
+                    shopItems[1].index++;
+                    shopItems[1].maxed = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+            }
+            audioSource.PlayOneShot(purchaseSound);
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(happinessButton.GetComponent<Image>()));
+        }
+    }
+    public void Cat()
+    {
+        if (clicker.Score >= shopItems[2].prices[shopItems[2].index] && !shopItems[2].maxed && shopItems[2].unlocked)
+        {
+            clicker.Score -= shopItems[2].prices[shopItems[2].index];
+            cat.gameObject.SetActive(true);
+            shopItems[2].maxed = true;
+            shopItems[3].unlocked = true;
+            upgradesBoughtCount++;
+            PlayLetter();
+            audioSource.PlayOneShot(purchaseSound);
+            TooltipUI.Instance.Refresh();
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(catButton.GetComponent<Image>()));
+        }
+    }
+    public void Money()
+    {
+        if (clicker.Score >= shopItems[3].prices[shopItems[3].index] && !shopItems[3].maxed && shopItems[3].unlocked)
+        {
+            switch (shopItems[1].index)
+            {
+                case 0:
+                    clicker.gain += 50;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[1].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.gain += 100;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.gain += 250;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.gain += 500;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
+                    clicker.gain += 800;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.gain += 1000;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    shopItems[4].unlocked = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.gain += 1250;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.gain += 1500;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.gain += 2000;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.gain += 3000;
+                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
+                    shopItems[3].maxed = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+            }
+            audioSource.PlayOneShot(purchaseSound);
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(moneyButton.GetComponent<Image>()));
+        }
+    }
+    
+    public void Friends()
+    {
+        if (clicker.Score >= shopItems[4].prices[shopItems[4].index] && !shopItems[4].maxed && shopItems[4].unlocked)
+        {
+            switch (shopItems[3].index)
+            {
+                case 0:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[3].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    shopItems[5].unlocked = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.Score -= shopItems[4].prices[shopItems[4].index];
+                    shopItems[4].maxed = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+            }
+            audioSource.PlayOneShot(purchaseSound);
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(friendsButton.GetComponent<Image>()));
+        }
+    }
+   
+    public void Mint()
+    {
+        if (clicker.Score >= shopItems[5].prices[shopItems[5].index] && !shopItems[5].maxed && shopItems[5].unlocked)
+        {
+            switch (shopItems[5].index)
+            {
+                case 0:
+                    clicker.gain += 500;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 1:
+                    clicker.gain += 700;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 2:
+                    clicker.gain += 1000;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 3:
+                    clicker.gain += 1400;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 4:
+                    clicker.gain += 2000;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 5:
+                    clicker.gain += 2600;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 6:
+                    clicker.gain += 3100;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 7:
+                    clicker.gain += 4000;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 8:
+                    clicker.gain += 4500;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].index++;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+                case 9:
+                    clicker.gain += 6000;
+                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
+                    shopItems[5].maxed = true;
+                    upgradesBoughtCount++;
+                    PlayLetter();
+                    TooltipUI.Instance.Refresh();
+                    break;
+            }
+            audioSource.PlayOneShot(purchaseSound);
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(mintButton.GetComponent<Image>()));
+        }
+    }
+
+    public void DarkDoor()
+    {
+        if (clicker.Score >= specialShopItems[0].prices[specialShopItems[0].index] && specialShopItems[0].unlocked)
+        {
+            clicker.Score = 0;
+            clicker.gain = 0;
+            StartCoroutine(BadEnding());
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(darkDoorButton.GetComponent<Image>()));
+        }
+    }
+    
+    public void LightDoor()
+    {
+        if (clicker.Score >= specialShopItems[1].prices[specialShopItems[1].index] && specialShopItems[1].unlocked)
+        {
+            clicker.Score = 0;
+            clicker.gain = 0;
+            StartCoroutine(GoodEnding());
+        }
+        else
+        {
+            StartCoroutine(InsufficientFundsRoutine(lightDoorButton.GetComponent<Image>()));
+        }
+    }
+
+    private IEnumerator InsufficientFundsRoutine(Image buttoncolor)
+    {
+        audioSource.PlayOneShot(insufficientFundsSound);
+        Color startColor = Color.red;
+        Color endColor = Color.white;
+
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            buttoncolor.color = Color.Lerp(startColor, endColor, time / duration);
+            yield return null;
+        }
+        
+        buttoncolor.color = endColor;
+    }
+   
+    private IEnumerator GoodEnding()
+    {
+        shopAnim.SetBool("open", false);
+        shopAnim.SetBool("close", true);
+        ending.gameObject.SetActive(true);
+        StartCoroutine(screenShake.ScreenShakeRoutine());
+
+        backgroundMusic.gameObject.SetActive(false);
+        audioSource.PlayOneShot(machineBreakingSound);
+        yield return new WaitForSeconds(machineBreakingSound.length + 3f);
+        
+        audioSource.PlayOneShot(machineShuttingDownSound);
+        endingAnim.SetTrigger("good");
+
+        yield return new WaitForSeconds(machineShuttingDownSound.length);
+
+        SceneManager.LoadSceneAsync("GoodEnding", LoadSceneMode.Single);
+    }
+    
+    private IEnumerator BadEnding()
+    {
+        shopAnim.SetBool("open", false);
+        shopAnim.SetBool("close", true);
+        ending.gameObject.SetActive(true);
+        StartCoroutine(screenShake.ScreenShakeRoutine());
+        
+        backgroundMusic.gameObject.SetActive(false);
+        audioSource.PlayOneShot(machineBreakingSound);
+        yield return new WaitForSeconds(machineBreakingSound.length);
+
+        audioSource.PlayOneShot(machineShuttingDownSound);
+        endingAnim.SetTrigger("bad");
+
+        yield return new WaitForSeconds(machineShuttingDownSound.length);
+
+        SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
+    }
+
+    private void PlayLetter()
+    {
         switch (upgradesBoughtCount)
         {
             case 1:
@@ -509,430 +1069,5 @@ public class Upgrades : MonoBehaviour
             case 51:
                 break;
         }
-    }
-
-    //Lägg till upgradesBoughtCount++ på all uppgraderingar och fixa funktionaliteten av katt uppgraderingen.
-    public void SunnyCaramel()
-    {
-        if (clicker.Score >= shopItems[0].prices[shopItems[0].index] && shopItems[0].maxed == false)
-        {
-            switch (shopItems[0].index)
-            {
-                case 0:
-                    clicker.gain += 2;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 1:
-                    clicker.gain += 5;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 2:
-                    clicker.gain += 10;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    shopItems[1].unlocked = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 3:
-                    clicker.gain += 20;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    break;
-                case 4:
-                    clicker.gain += 80;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 5:
-                    clicker.gain += 100;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 6:
-                    clicker.gain += 140;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 7:
-                    clicker.gain += 160;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 8:
-                    clicker.gain += 180;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 9:
-                    clicker.gain += 200;
-                    clicker.Score -= shopItems[0].prices[shopItems[0].index];
-                    shopItems[0].maxed = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                    
-            }
-            audioSource.PlayOneShot(purchaseSound);
-        }
-        else
-        {
-            StartCoroutine(InsufficientFundsRoutine(caramelButton.GetComponent<Image>()));
-        }
-    }
-    public void Happiness()
-    {
-        if (clicker.Score >= shopItems[2].prices[shopItems[2].index] && shopItems[2].maxed == false)
-        {
-            switch (shopItems[2].index)
-            {
-                case 0:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 1:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 2:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 3:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 4:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 5:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    shopItems[3].unlocked = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 6:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 7:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 8:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 9:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[2].index++;
-                    shopItems[2].maxed = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-            }
-        }
-    }
-    public void Cat()
-    {
-        if (clicker.Score >= shopItems[4].prices[shopItems[4].index] && shopItems[4].maxed == false)
-        {
-            clicker.Score -= shopItems[4].prices[shopItems[4].index];
-            cat.gameObject.SetActive(true);
-            TooltipUI.Instance.Refresh();
-            shopItems[5].unlocked = true;
-            shopItems[4].maxed = true;
-        }
-    }
-    public void Money()
-    {
-        if (clicker.Score >= shopItems[1].prices[shopItems[1].index] && shopItems[1].maxed == false)
-        {
-            switch (shopItems[1].index)
-            {
-                case 0:
-                    clicker.gain += 50;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 1:
-                    clicker.gain += 100;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 2:
-                    clicker.gain += 250;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 3:
-                    clicker.gain += 500;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    break;
-                case 4:
-                    clicker.gain += 800;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 5:
-                    clicker.gain += 1000;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    shopItems[2].unlocked = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 6:
-                    clicker.gain += 1250;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 7:
-                    clicker.gain += 1500;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 8:
-                    clicker.gain += 2000;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 9:
-                    clicker.gain += 3000;
-                    clicker.Score -= shopItems[1].prices[shopItems[1].index];
-                    shopItems[1].maxed = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-            }
-        }
-    }
-    
-    public void Friends()
-    {
-        if (clicker.Score >= shopItems[3].prices[shopItems[3].index] && shopItems[3].maxed == false)
-        {
-            switch (shopItems[3].index)
-            {
-                case 0:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 1:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    /**/
-                    break;
-                case 2:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 3:
-                    clicker.Score -= shopItems[2].prices[shopItems[2].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 4:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 5:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 6:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    shopItems[4].unlocked = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 7:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 8:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 9:
-                    clicker.Score -= shopItems[3].prices[shopItems[3].index];
-                    shopItems[3].maxed = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-            }
-        }
-    }
-   
-    public void Mint()
-    {
-        if (clicker.Score >= shopItems[5].prices[shopItems[5].index] && shopItems[5].maxed == false)
-        {
-            switch (shopItems[5].index)
-            {
-                case 0:
-                    clicker.gain += 500;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 1:
-                    clicker.gain += 700;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 2:
-                    clicker.gain += 1000;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 3:
-                    clicker.gain += 1400;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 4:
-                    clicker.gain += 2000;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 5:
-                    clicker.gain += 2600;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 6:
-                    clicker.gain += 3100;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 7:
-                    clicker.gain += 4000;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 8:
-                    clicker.gain += 4500;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].index++;
-                    TooltipUI.Instance.Refresh();
-                    break;
-                case 9:
-                    clicker.gain += 6000;
-                    clicker.Score -= shopItems[5].prices[shopItems[5].index];
-                    shopItems[5].maxed = true;
-                    TooltipUI.Instance.Refresh();
-                    break;
-            }
-        }
-    }
-
-    public void DarkDoor()
-    {
-        if (clicker.Score >= specialShopItems[0].prices[specialShopItems[0].index])
-        {
-            clicker.Score = 0;
-            clicker.gain = 0;
-            StartCoroutine(BadEnding());
-        }
-    }
-    
-    public void LightDoor()
-    {
-        if (clicker.Score >= specialShopItems[1].prices[specialShopItems[1].index])
-        {
-            clicker.Score = 0;
-            clicker.gain = 0;
-            StartCoroutine(GoodEnding());
-        }
-    }
-
-    private IEnumerator InsufficientFundsRoutine(Image buttoncolor)
-    {
-        audioSource.PlayOneShot(insufficientFundsSound);
-        Color startColor = Color.red;
-        Color endColor = Color.white;
-
-        float time = 0;
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            buttoncolor.color = Color.Lerp(startColor, endColor, time / duration);
-            yield return null;
-        }
-        
-        buttoncolor.color = endColor;
-    }
-   
-    private IEnumerator GoodEnding()
-    {
-        shopAnim.SetBool("open", false);
-        shopAnim.SetBool("close", true);
-        ending.gameObject.SetActive(true);
-        StartCoroutine(screenShake.ScreenShakeRoutine());
-
-        backgroundMusic.gameObject.SetActive(false);
-        audioSource.PlayOneShot(machineBreakingSound);
-        yield return new WaitForSeconds(machineBreakingSound.length + 3f);
-        
-        audioSource.PlayOneShot(machineShuttingDownSound);
-        endingAnim.SetTrigger("good");
-
-        yield return new WaitForSeconds(machineShuttingDownSound.length);
-
-        SceneManager.LoadSceneAsync("GoodEnding", LoadSceneMode.Single);
-    }
-    
-    private IEnumerator BadEnding()
-    {
-        shopAnim.SetBool("open", false);
-        shopAnim.SetBool("close", true);
-        ending.gameObject.SetActive(true);
-        StartCoroutine(screenShake.ScreenShakeRoutine());
-        
-        backgroundMusic.gameObject.SetActive(false);
-        audioSource.PlayOneShot(machineBreakingSound);
-        yield return new WaitForSeconds(machineBreakingSound.length);
-
-        audioSource.PlayOneShot(machineShuttingDownSound);
-        endingAnim.SetTrigger("bad");
-
-        yield return new WaitForSeconds(machineShuttingDownSound.length);
-
-        SceneManager.LoadSceneAsync("BadEnding", LoadSceneMode.Single);
     }
 }
