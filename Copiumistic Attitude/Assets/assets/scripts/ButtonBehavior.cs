@@ -12,6 +12,7 @@ public class ButtonBehavior : MonoBehaviour,
     private Animator anim;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip leverSound;
+    [SerializeField] private Shop shop;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -39,5 +40,6 @@ public class ButtonBehavior : MonoBehaviour,
         
         yield return new WaitForSeconds(delay);
         anim.SetBool("down", false);
+        shop.CloseShop();
     }
 }

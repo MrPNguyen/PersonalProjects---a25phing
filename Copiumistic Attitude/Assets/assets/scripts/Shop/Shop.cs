@@ -20,20 +20,17 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            animator.SetBool("open", false);
-            animator.SetBool("close", true);
-            
-            audioSource.PlayOneShot(openSound);
-            shopIsOpen = false;
+            CloseShop();
         }
         
     }
 
     public void CloseShop()
     {
-        if (shopIsOpen)
-        {
-           
-        }
+        animator.SetBool("open", false);
+        animator.SetBool("close", true);
+            
+        audioSource.PlayOneShot(openSound);
+        shopIsOpen = false;
     }
 }

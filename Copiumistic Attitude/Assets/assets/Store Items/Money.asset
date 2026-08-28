@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe43a83753af4386d4d7e35726bdd, type: 3}
   m_Name: Money
   m_EditorClassIdentifier: Assembly-CSharp::Items
-  index: 0
+  index: 10
   name: Wealth
   prices: fa000000bc020000c4090000401f000010270000983a00003075000080380100a0860100400d0300
   description: Become a millionaire in no time! Increase thoughts per click through
     improved wealth.
   unlocked: 1
-  maxed: 0
+  maxed: 1
