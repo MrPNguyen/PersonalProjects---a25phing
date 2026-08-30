@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    private bool shopIsOpen;
+    [HideInInspector] public bool shopIsOpen;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip openSound;
 

@@ -40,6 +40,10 @@ public class ButtonBehavior : MonoBehaviour,
         
         yield return new WaitForSeconds(delay);
         anim.SetBool("down", false);
-        shop.CloseShop();
+
+        if (shop.shopIsOpen)
+        {
+            shop.CloseShop();
+        }
     }
 }

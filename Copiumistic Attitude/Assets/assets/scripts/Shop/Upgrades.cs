@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,7 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
+using URPGlitch;
 
 public class Upgrades : MonoBehaviour
 {
@@ -69,6 +68,7 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private Volume globalVol;
     private Vignette vi;
     private ColorAdjustments ca;
+    private AnalogGlitchVolume agv;
     
     [SerializeField] private AudioSource cheeryMusic;
     [SerializeField] private AudioSource sadMusic;
@@ -82,6 +82,7 @@ public class Upgrades : MonoBehaviour
     {
         globalVol.profile.TryGet(out ca);
         globalVol.profile.TryGet(out vi);
+        globalVol.profile.TryGet(out agv);
         cheeryMusic.volume = 1;
         sadMusic.volume = 0;
         heartbeatSource.volume = 0.20f;
@@ -401,16 +402,9 @@ public class Upgrades : MonoBehaviour
             clicker.Score -= shopItems[0].prices[shopItems[0].index];
             shopItems[0].index++;
             upgradesBoughtCount++;
-                    
-            ca.saturation.value -= 2;
-            vi.intensity.value += 0.0006f;
-            cheeryMusic.volume -= 0.02f;
-            sadMusic.volume += 0.02f;
             
-            heartbeatSource.volume += 0.02f;
-            heartbeatInterval -= 0.015f;
-            heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
-                    
+            UpdateUI();
+            
             PlayLetter();
             TooltipUI.Instance.Refresh();
             audioSource.PlayOneShot(purchaseSound);
@@ -437,15 +431,8 @@ public class Upgrades : MonoBehaviour
             shopItems[1].index++;
             upgradesBoughtCount++;
             
-            ca.saturation.value -= 2;
-            vi.intensity.value += 0.0006f;
-            cheeryMusic.volume -= 0.02f;
-            sadMusic.volume += 0.02f;
-            
-            heartbeatSource.volume += 0.02f;
-            heartbeatInterval -= 0.015f;
-            heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
-            
+            UpdateUI();
+
             PlayLetter();
             TooltipUI.Instance.Refresh();
             
@@ -466,14 +453,7 @@ public class Upgrades : MonoBehaviour
             shopItems[3].unlocked = true;
             upgradesBoughtCount++;
             
-            ca.saturation.value -= 2;
-            vi.intensity.value += 0.0006f;
-            cheeryMusic.volume -= 0.02f;
-            sadMusic.volume += 0.02f;
-            
-            heartbeatSource.volume += 0.02f;
-            heartbeatInterval -= 0.015f;
-            heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
+            UpdateUI();
             
             PlayLetter();
             audioSource.PlayOneShot(purchaseSound);
@@ -527,14 +507,7 @@ public class Upgrades : MonoBehaviour
             shopItems[3].index++;
             upgradesBoughtCount++;
             
-            ca.saturation.value -= 2;
-            vi.intensity.value += 0.0006f;
-            cheeryMusic.volume -= 0.02f;
-            sadMusic.volume += 0.02f;
-            
-            heartbeatSource.volume += 0.02f;
-            heartbeatInterval -= 0.015f;
-            heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
+            UpdateUI();
             
             PlayLetter();
             TooltipUI.Instance.Refresh();
@@ -564,14 +537,7 @@ public class Upgrades : MonoBehaviour
             shopItems[4].index++;
             upgradesBoughtCount++;
             
-            ca.saturation.value -= 2;
-            vi.intensity.value += 0.0006f;
-            cheeryMusic.volume -= 0.02f;
-            sadMusic.volume += 0.02f;
-            
-            heartbeatSource.volume += 0.02f;
-            heartbeatInterval -= 0.015f;
-            heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
+            UpdateUI();
             
             PlayLetter();
             TooltipUI.Instance.Refresh();
@@ -626,14 +592,7 @@ public class Upgrades : MonoBehaviour
             shopItems[5].index++;
             upgradesBoughtCount++;
             
-            ca.saturation.value -= 2;
-            vi.intensity.value += 0.0006f;
-            cheeryMusic.volume -= 0.02f;
-            sadMusic.volume += 0.02f;
-            
-            heartbeatSource.volume += 0.02f;
-            heartbeatInterval -= 0.015f;
-            heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
+            UpdateUI();
             
             PlayLetter();
             TooltipUI.Instance.Refresh();
@@ -893,5 +852,22 @@ public class Upgrades : MonoBehaviour
             case 51:
                 break;
         }
+    }
+
+    private void UpdateUI()
+    {
+        ca.saturation.value -= 2;
+        vi.intensity.value += 0.0006f;
+        cheeryMusic.volume -= 0.02f;
+        sadMusic.volume += 0.02f;
+            
+        agv.scanLineJitter.value += 0.002f;
+        agv.verticalJump.value += 0.00004f;
+        agv.horizontalShake.value += 0.00004f;
+        agv.colorDrift.value += 0.00002f;
+            
+        heartbeatSource.volume += 0.02f;
+        heartbeatInterval -= 0.015f;
+        heartbeatInterval = Mathf.Max(heartbeatInterval, minimumheartbeatInterval);
     }
 }
