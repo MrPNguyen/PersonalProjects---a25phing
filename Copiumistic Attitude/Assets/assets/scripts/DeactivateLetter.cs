@@ -1,9 +1,13 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeactivateLetter : MonoBehaviour
 {
    private Animator paper;
+   [SerializeField] private Image info;
+   [HideInInspector] public Sprite img;
 
    void Start()
    {
@@ -21,5 +25,10 @@ public class DeactivateLetter : MonoBehaviour
       yield return new WaitForSeconds(0.1f);
       
       paper.SetTrigger("stop");
+   }
+
+   public void SetPaper()
+   {
+      info.sprite = img;
    }
 }

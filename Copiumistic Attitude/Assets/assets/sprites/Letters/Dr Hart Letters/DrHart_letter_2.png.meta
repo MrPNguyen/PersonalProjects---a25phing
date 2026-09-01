@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1db2e9f60ba20c4458495f7effac53dd
+guid: 8f2a9feac9535324c826030d8eeedb81
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7001267948424210895
-    second: Bestfriend_letter_6_0
+      213: -4876154166595025810
+    second: DrHart_letter_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bestfriend_letter_6_0
+      name: DrHart_letter_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc92723da10892160800000000000000
-      internalID: 7001267948424210895
+      spriteID: e640016de9b645cb0800000000000000
+      internalID: -4876154166595025810
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bestfriend_letter_6_0: 7001267948424210895
+      DrHart_letter_2_0: -4876154166595025810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

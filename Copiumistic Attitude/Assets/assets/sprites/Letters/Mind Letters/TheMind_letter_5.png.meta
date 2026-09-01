@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1db2e9f60ba20c4458495f7effac53dd
+guid: 3e74ecafcd178bb4ba5ea91e88a38d7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7001267948424210895
-    second: Bestfriend_letter_6_0
+      213: 3326995517371497530
+    second: TheMind_letter_5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bestfriend_letter_6_0
+      name: TheMind_letter_5_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc92723da10892160800000000000000
-      internalID: 7001267948424210895
+      spriteID: a3cbe3ebbccdb2e20800000000000000
+      internalID: 3326995517371497530
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bestfriend_letter_6_0: 7001267948424210895
+      TheMind_letter_5_0: 3326995517371497530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

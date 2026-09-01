@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1db2e9f60ba20c4458495f7effac53dd
+guid: f22db831539741f40bb7fa45d438b6c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7001267948424210895
-    second: Bestfriend_letter_6_0
+      213: -4526943363712167805
+    second: TheMind_letter_front1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1045
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,9 +72,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bestfriend_letter_6_0
+      name: TheMind_letter_front1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc92723da10892160800000000000000
-      internalID: 7001267948424210895
+      spriteID: 380df97def01d21c0800000000000000
+      internalID: -4526943363712167805
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bestfriend_letter_6_0: 7001267948424210895
+      TheMind_letter_front1_0: -4526943363712167805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

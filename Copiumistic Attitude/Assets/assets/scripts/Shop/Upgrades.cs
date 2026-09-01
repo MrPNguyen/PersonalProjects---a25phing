@@ -26,14 +26,6 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private Image lightDoorButton;
     
     [SerializeField] private List<Animator> letterAnims;
-    [SerializeField] private List<TextMeshProUGUI> letterInfoObjects;
-    
-    [Header("Texts to the letters")]
-    [SerializeField, TextArea(5, 2)] private List<string> momLetterInfos;
-    [SerializeField, TextArea(5, 2)] private List<string> dadLetterInfos;
-    [SerializeField, TextArea(5, 2)] private List<string> sisterLetterInfos;
-    [SerializeField, TextArea(5, 2)] private List<string> drHartLetterInfos;
-    [SerializeField, TextArea(5, 2)] private List<string> mindLetterInfos;
     
     [Header("Ending")]
     [SerializeField] private GameObject ending;
@@ -697,8 +689,7 @@ public class Upgrades : MonoBehaviour
             case 1:
                 break;
             case 2:
-                letterInfoObjects[3].SetText(drHartLetterInfos[0]);
-                letterAnims[3].SetTrigger("send");
+                letterAnims[0].SetTrigger("send1");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 3:
@@ -706,12 +697,10 @@ public class Upgrades : MonoBehaviour
             case 4:
                 break;
             case 5:
-                letterInfoObjects[1].SetText(dadLetterInfos[0]);
                 letterAnims[1].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 6:
-                letterInfoObjects[2].SetText(sisterLetterInfos[0]);
                 letterAnims[2].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -720,7 +709,6 @@ public class Upgrades : MonoBehaviour
             case 8:
                 break;
             case 9:
-                letterInfoObjects[0].SetText(momLetterInfos[0]);
                 letterAnims[0].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -729,7 +717,6 @@ public class Upgrades : MonoBehaviour
             case 11:
                 break;
             case 12:
-                letterInfoObjects[2].SetText(sisterLetterInfos[1]);
                 letterAnims[2].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -743,21 +730,18 @@ public class Upgrades : MonoBehaviour
             case 16:
                 break;
             case 17:
-                letterInfoObjects[0].SetText(momLetterInfos[1]);
                 letterAnims[0].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 18:
                 break;
             case 19:
-                letterInfoObjects[4].SetText(mindLetterInfos[0]);
                 letterAnims[4].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 20:
                 break;
             case 21:
-                letterInfoObjects[3].SetText(drHartLetterInfos[1]);
                 letterAnims[3].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -768,7 +752,6 @@ public class Upgrades : MonoBehaviour
             case 24:
                 break;
             case 25:
-                letterInfoObjects[1].SetText(dadLetterInfos[1]);
                 letterAnims[1].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -777,14 +760,12 @@ public class Upgrades : MonoBehaviour
             case 27:
                 break;
             case 28:
-                letterInfoObjects[0].SetText(momLetterInfos[2]);
                 letterAnims[0].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 29:
                 break;
             case 30:
-                letterInfoObjects[4].SetText(mindLetterInfos[1]);
                 letterAnims[4].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -793,14 +774,12 @@ public class Upgrades : MonoBehaviour
             case 32:
                 break;
             case 33:
-                letterInfoObjects[1].SetText(dadLetterInfos[2]);
                 letterAnims[1].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 34:
                 break;
             case 35:
-                letterInfoObjects[4].SetText(mindLetterInfos[3]);
                 letterAnims[4].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -809,7 +788,6 @@ public class Upgrades : MonoBehaviour
             case 37:
                 break;
             case 38:
-                letterInfoObjects[4].SetText(mindLetterInfos[4]);
                 letterAnims[4].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -818,7 +796,6 @@ public class Upgrades : MonoBehaviour
             case 40:
                 break;
             case 41:
-                letterInfoObjects[3].SetText(drHartLetterInfos[3]);
                 letterAnims[3].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
@@ -829,21 +806,18 @@ public class Upgrades : MonoBehaviour
             case 44:
                 break;
             case 45:
-                letterInfoObjects[2].SetText(sisterLetterInfos[2]);
                 letterAnims[2].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 46:
                 break;
             case 47:
-                letterInfoObjects[4].SetText(mindLetterInfos[2]);
                 letterAnims[4].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 48:
                 break;
             case 49:
-                letterInfoObjects[3].SetText(sisterLetterInfos[2]);
                 letterAnims[3].SetTrigger("send");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
