@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MindLetterAnim
+  m_Name: DrHartLetterAnim 1
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -32,7 +32,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 2
-        value: -1222
+        value: -1388
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -71,7 +71,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 5
-        value: -764
+        value: -870
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -168,11 +168,22 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -3017542927791388629, guid: c84074d3e038aed4c9147e2d8d66a185, type: 3}
+      value: {fileID: -7876505158819280035, guid: 317cac38d87d40640baaab2ba117f23f, type: 3}
     - time: 2.3333333
-      value: {fileID: -8102646271434738262, guid: 2339776d8d48f9644bee865f2b5b20ad, type: 3}
+      value: {fileID: 4835729816762414185, guid: 1b42e50620d1a224987a47de8495505b, type: 3}
     attribute: m_Sprite
     path: MomLetter
+    classID: 114
+    script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+    flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 5780098695809274669, guid: 587194e73255dd447a6b2dac43844982, type: 3}
+    - time: 2.4166667
+      value: {fileID: 6301331243043875695, guid: 7b684f311da5d9548b3606fe092949b4, type: 3}
+    attribute: m_Sprite
+    path: Paper
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
     flags: 2
@@ -228,9 +239,20 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 2413514514
+      attribute: 2015549526
+      script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -3017542927791388629, guid: c84074d3e038aed4c9147e2d8d66a185, type: 3}
-    - {fileID: -8102646271434738262, guid: 2339776d8d48f9644bee865f2b5b20ad, type: 3}
+    - {fileID: -7876505158819280035, guid: 317cac38d87d40640baaab2ba117f23f, type: 3}
+    - {fileID: 4835729816762414185, guid: 1b42e50620d1a224987a47de8495505b, type: 3}
+    - {fileID: 5780098695809274669, guid: 587194e73255dd447a6b2dac43844982, type: 3}
+    - {fileID: 6301331243043875695, guid: 7b684f311da5d9548b3606fe092949b4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -267,7 +289,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 2
-        value: -1222
+        value: -1388
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -306,7 +328,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 5
-        value: -764
+        value: -870
         inSlope: 0
         outSlope: 0
         tangentMode: 136

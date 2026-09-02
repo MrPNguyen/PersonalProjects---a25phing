@@ -689,143 +689,142 @@ public class Upgrades : MonoBehaviour
             case 1:
                 break;
             case 2:
-                letterAnims[1].SetTrigger("send4");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[3].SetTrigger("send1");
                 break;
             case 3:
+                letterAnims[5].SetTrigger("send1");
                 break;
             case 4:
                 break;
             case 5:
                 letterAnims[1].SetTrigger("send1");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 6:
-                letterAnims[2].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[2].SetTrigger("send1");
                 break;
             case 7:
                 break;
             case 8:
                 break;
             case 9:
-                letterAnims[0].SetTrigger("send2");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[0].SetTrigger("send1");
                 break;
             case 10:
                 break;
             case 11:
                 break;
             case 12:
-                letterAnims[2].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[5].SetTrigger("send2");
                 break;
             case 13:
+                letterAnims[5].SetTrigger("send3");
                 break;
             case 14:
                 break;
             case 15:
-               
+                letterAnims[3].SetTrigger("send4");
                 break;
             case 16:
+                letterAnims[2].SetTrigger("send2");
                 break;
             case 17:
-                letterAnims[0].SetTrigger("send3");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 18:
+                letterAnims[0].SetTrigger("send2");
                 break;
             case 19:
-                letterAnims[4].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 20:
+                letterAnims[4].SetTrigger("send1");
                 break;
             case 21:
-                letterAnims[3].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 22:
+                letterAnims[2].SetTrigger("send3");
                 break;
             case 23:
+                letterAnims[3].SetTrigger("send3");
                 break;
             case 24:
                 break;
             case 25:
                 letterAnims[1].SetTrigger("send2");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 26:
+                letterAnims[4].SetTrigger("send2");
                 break;
             case 27:
                 break;
             case 28:
-                letterAnims[0].SetTrigger("send4");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[0].SetTrigger("send3");
                 break;
             case 29:
                 break;
             case 30:
-                letterAnims[4].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[1].SetTrigger("send3");
                 break;
             case 31:
+                letterAnims[4].SetTrigger("send5");
                 break;
             case 32:
                 break;
             case 33:
-                letterAnims[1].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[5].SetTrigger("send4");
                 break;
             case 34:
+                letterAnims[5].SetTrigger("send5");
                 break;
             case 35:
-                letterAnims[4].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[5].SetTrigger("send6");
                 break;
             case 36:
+                letterAnims[4].SetTrigger("send4");
                 break;
             case 37:
+                letterAnims[2].SetTrigger("send7");
                 break;
             case 38:
-                letterAnims[4].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[3].SetTrigger("send5");
                 break;
             case 39:
                 break;
             case 40:
+                letterAnims[2].SetTrigger("send3");
                 break;
             case 41:
-                letterAnims[3].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 42:
+                letterAnims[1].SetTrigger("send4");
                 break;
             case 43:
+                letterAnims[2].SetTrigger("send4");
                 break;
             case 44:
+                letterAnims[2].SetTrigger("send5");
                 break;
             case 45:
-                letterAnims[2].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[2].SetTrigger("send6");
                 break;
             case 46:
+                letterAnims[0].SetTrigger("send4");
                 break;
             case 47:
-                letterAnims[4].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[3].SetTrigger("send6");
                 break;
             case 48:
+                letterAnims[4].SetTrigger("send6");
                 break;
             case 49:
-                letterAnims[3].SetTrigger("send");
-                envelopeAudioSource.PlayOneShot(envelopeSound);
+                letterAnims[3].SetTrigger("send7");
                 break;
             case 50:
+                letterAnims[4].SetTrigger("send3");
                 break;
             case 51:
+                letterAnims[4].SetTrigger("send7");
                 break;
         }
+        envelopeAudioSource.PlayOneShot(envelopeSound);
     }
 
     private void UpdateUI()
