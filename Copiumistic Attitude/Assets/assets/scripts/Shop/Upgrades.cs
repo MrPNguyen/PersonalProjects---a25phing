@@ -689,7 +689,7 @@ public class Upgrades : MonoBehaviour
             case 1:
                 break;
             case 2:
-                letterAnims[0].SetTrigger("send1");
+                letterAnims[1].SetTrigger("send4");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 3:
@@ -697,7 +697,7 @@ public class Upgrades : MonoBehaviour
             case 4:
                 break;
             case 5:
-                letterAnims[1].SetTrigger("send");
+                letterAnims[1].SetTrigger("send1");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 6:
@@ -709,7 +709,7 @@ public class Upgrades : MonoBehaviour
             case 8:
                 break;
             case 9:
-                letterAnims[0].SetTrigger("send");
+                letterAnims[0].SetTrigger("send2");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 10:
@@ -730,7 +730,7 @@ public class Upgrades : MonoBehaviour
             case 16:
                 break;
             case 17:
-                letterAnims[0].SetTrigger("send");
+                letterAnims[0].SetTrigger("send3");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 18:
@@ -752,7 +752,7 @@ public class Upgrades : MonoBehaviour
             case 24:
                 break;
             case 25:
-                letterAnims[1].SetTrigger("send");
+                letterAnims[1].SetTrigger("send2");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 26:
@@ -760,7 +760,7 @@ public class Upgrades : MonoBehaviour
             case 27:
                 break;
             case 28:
-                letterAnims[0].SetTrigger("send");
+                letterAnims[0].SetTrigger("send4");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 29:
