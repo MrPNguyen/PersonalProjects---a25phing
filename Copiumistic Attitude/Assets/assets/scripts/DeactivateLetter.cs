@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DeactivateLetter : MonoBehaviour
 {
    private Animator paper;
+   [SerializeField] private Upgrades upgrades;
 
    void Start()
    {
@@ -16,6 +17,16 @@ public class DeactivateLetter : MonoBehaviour
       StartCoroutine(closeLetter());
    }
 
+   public void PaperIsActive()
+   {
+      upgrades.isLetterActive = true;
+   }
+
+   public void PaperIsInactive()
+   {
+      upgrades.isLetterActive = false;
+   }
+   
    IEnumerator closeLetter()
    {
       paper.SetTrigger("stop");

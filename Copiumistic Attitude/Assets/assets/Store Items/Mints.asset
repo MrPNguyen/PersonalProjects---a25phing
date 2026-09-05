@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: Quiet Mints
-  prices: c8000000900100002003000040060000800c000000190000003200000064000000c8000000900100
+  prices: 983a0000a8610000c8af000060ea000080380100c0d4010000f40100580f0200f0490200400d0300
   description: Delicious mints to calm the mind! helps you concentrate to generate
     more thoughts per click.
   unlocked: 0

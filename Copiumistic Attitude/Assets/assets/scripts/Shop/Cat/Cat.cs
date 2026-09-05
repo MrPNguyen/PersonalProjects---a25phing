@@ -19,29 +19,31 @@ public class Cat : MonoBehaviour
         catInfo.gameObject.SetActive(false);
     }
 
+    void Update()
+    {
+    }
     public void CatOut()
     {
         StartCoroutine(SendCatOut());
-        /*anim.SetBool("walkAway", true);
-        anim.SetBool("walkBack", false);*/
     }
     private IEnumerator SendCatOut()
     {
         anim.SetBool("walkAway", true);
         anim.SetBool("walkBack", false);
         
-        if (sentOutAmount <= 5)
+        if (sentOutAmount <= 4)
         {
             yield return new WaitForSeconds(cattimer);
 
-            float catGain = Random.Range(1000f, 100000f);
+            float catGain = Random.Range(100000f, 1000000f);
             
 
             anim.SetBool("walkAway", false);
             anim.SetBool("walkBack", true);
             
-            cattimer +=  50f;
+            cattimer +=  20f;
             sentOutAmount++;
+            Debug.Log(sentOutAmount);
             
             yield return new WaitForSeconds(2f);
             clicker.Score += catGain ;

@@ -38,11 +38,13 @@ public class Upgrades : MonoBehaviour
     
     [Header("Values")]
     [SerializeField] private float duration;
+    private bool autoGainUnlocked;
 
-    private float bubbletimer;
-    private float timeBetweenClicks;
+    private double bubbletimer;
 
     private int upgradesBoughtCount;
+
+    [HideInInspector] public bool isLetterActive;
     
     [Header("Cat")]
     [SerializeField] private GameObject cat;
@@ -72,6 +74,7 @@ public class Upgrades : MonoBehaviour
     
     private void Start()
     {
+        autoGainUnlocked = false;
         globalVol.profile.TryGet(out ca);
         globalVol.profile.TryGet(out vi);
         globalVol.profile.TryGet(out agv);
@@ -101,235 +104,49 @@ public class Upgrades : MonoBehaviour
 
     private void Update()
     {
-        if (shopItems[1].unlocked)
+        if (autoGainUnlocked)
         {
-            switch (shopItems[1].index)
+            if (shopItems[1].unlocked)
             {
-                case 1:
-                    timeBetweenClicks = Time.deltaTime * 1.5f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
+                switch (shopItems[1].index)
+                {
+                    case 1: clicker.autoGain = Time.deltaTime * 1000f; break;
+                    case 2: clicker.autoGain = Time.deltaTime * 3000f; break;
+                    case 3: clicker.autoGain = Time.deltaTime * 5500f; break;
+                    case 4: clicker.autoGain = Time.deltaTime * 6200f; break;
+                    case 5: clicker.autoGain = Time.deltaTime * 7700f; break;
+                    case 6: clicker.autoGain = Time.deltaTime * 8500f; break;
+                    case 7: clicker.autoGain = Time.deltaTime * 9000f; break;
+                    case 8: clicker.autoGain = Time.deltaTime * 13500f; break;
+                    case 9: clicker.autoGain = Time.deltaTime * 18500f; break;
+                }
+            }
+            if (shopItems[3].unlocked)
+            {
+                switch (shopItems[3].index)
+                {
+                    case 1: clicker.autoGain = Time.deltaTime * 20000f; break;
+                    case 2: clicker.autoGain = Time.deltaTime * 32000f; break;
+                    case 3: clicker.autoGain = Time.deltaTime * 51000f; break;
+                    case 4: clicker.autoGain = Time.deltaTime * 69000f; break;
+                    case 5: clicker.autoGain = Time.deltaTime * 87000f; break;
+                    case 6: clicker.autoGain = Time.deltaTime * 100000f; break;
+                    case 7: clicker.autoGain = Time.deltaTime * 106000f; break;
+                    case 8: clicker.autoGain = Time.deltaTime * 145000f; break;
+                    case 9: clicker.autoGain = Time.deltaTime * 200000f; break;
+                }
+            }
+            clicker.Score += clicker.autoGain;
 
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 2:
-                    timeBetweenClicks = Time.deltaTime * 2f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
+            bubbletimer += clicker.autoGain;
 
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 3:
-                    timeBetweenClicks = Time.deltaTime * 3f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 4:
-                    timeBetweenClicks = Time.deltaTime * 6f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    } 
-                    break;
-                case 5:
-                    timeBetweenClicks = Time.deltaTime * 8f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 6:
-                    timeBetweenClicks = Time.deltaTime * 12f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 7:
-                    timeBetweenClicks = Time.deltaTime * 15f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 8:
-                    timeBetweenClicks = Time.deltaTime * 20f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 9:
-                    timeBetweenClicks = Time.deltaTime * 36f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
+            if (bubbletimer >= 1f)
+            {
+                clicker.SpawnSpeechBubbles();
+                bubbletimer = 0f;
             }
         }
-        
-        if (shopItems[3].unlocked)
-        {
-            switch (shopItems[3].index)
-            {
-                case 1:
-                    timeBetweenClicks = Time.deltaTime * 15f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
 
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 2:
-                    timeBetweenClicks = Time.deltaTime * 30f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 3:
-                    timeBetweenClicks = Time.deltaTime * 40f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 4:
-                    timeBetweenClicks = Time.deltaTime * 60f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 5:
-                    timeBetweenClicks = Time.deltaTime * 80f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 6:
-                    timeBetweenClicks = Time.deltaTime * 95f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 7:
-                    timeBetweenClicks = Time.deltaTime * 120f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 8:
-                    timeBetweenClicks = Time.deltaTime * 145f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-                case 9:
-                    timeBetweenClicks = Time.deltaTime * 180f;
-                    clicker.Score += timeBetweenClicks;
-                    
-                    bubbletimer += timeBetweenClicks;
-
-                    if (bubbletimer >= 1f)
-                    {
-                        clicker.SpawnSpeechBubbles();
-                        bubbletimer = 0f;
-                    }
-                    break;
-            }
-        }
 
         if (shopItems.TrueForAll(item => item.maxed))
         {
@@ -350,43 +167,42 @@ public class Upgrades : MonoBehaviour
         //Fixa timingen så att breven poppar upp på rätt tid.
     }
     
-    //Testa flytta alla gemensamma rader kod i varddera case till botten för mer komprimerad kod
     public void SunnyCaramel()
     {
-        if (!shopItems[0].maxed && clicker.Score >= shopItems[0].prices[shopItems[0].index])
+        if (!shopItems[0].maxed && !isLetterActive && clicker.Score >= shopItems[0].prices[shopItems[0].index])
         {
             switch (shopItems[0].index)
             {
                 case 0:
-                    clicker.gain += 2;
+                    clicker.Gain += 2;
                     break;
                 case 1:
-                    clicker.gain += 5;
+                    clicker.Gain += 5;
                     break;
                 case 2:
-                    clicker.gain += 10;
+                    clicker.Gain += 10;
                     shopItems[1].unlocked = true;
                     break;
                 case 3:
-                    clicker.gain += 20;
+                    clicker.Gain += 20;
                     break;
                 case 4:
-                    clicker.gain += 80;
+                    clicker.Gain += 80;
                     break;
                 case 5:
-                    clicker.gain += 100;
+                    clicker.Gain += 100;
                     break;
                 case 6:
-                    clicker.gain += 140;
+                    clicker.Gain += 140;
                     break;
                 case 7:
-                    clicker.gain += 160;
+                    clicker.Gain += 160;
                     break;
                 case 8:
-                    clicker.gain += 180;
+                    clicker.Gain += 180;
                     break;
                 case 9:
-                    clicker.gain += 200;
+                    clicker.Gain += 200;
                     shopItems[0].maxed = true;
                     break;
                     
@@ -408,10 +224,13 @@ public class Upgrades : MonoBehaviour
     }
     public void Happiness()
     {
-        if (!shopItems[1].maxed && shopItems[1].unlocked && clicker.Score >= shopItems[1].prices[shopItems[1].index])
+        if (!shopItems[1].maxed && !isLetterActive && shopItems[1].unlocked && clicker.Score >= shopItems[1].prices[shopItems[1].index])
         {
             switch (shopItems[1].index)
             {
+                case 0:
+                    autoGainUnlocked = true;
+                    break;
                 case 5:
                     shopItems[2].unlocked = true;
                     break;
@@ -437,7 +256,7 @@ public class Upgrades : MonoBehaviour
     }
     public void Cat()
     {
-        if (!shopItems[2].maxed && clicker.Score >= shopItems[2].prices[shopItems[2].index] && shopItems[2].unlocked)
+        if (!shopItems[2].maxed && !isLetterActive && clicker.Score >= shopItems[2].prices[shopItems[2].index] && shopItems[2].unlocked)
         {
             clicker.Score -= shopItems[2].prices[shopItems[2].index];
             cat.gameObject.SetActive(true);
@@ -458,40 +277,40 @@ public class Upgrades : MonoBehaviour
     }
     public void Money()
     {
-        if (!shopItems[3].maxed && shopItems[3].unlocked && clicker.Score >= shopItems[3].prices[shopItems[3].index])
+        if (!shopItems[3].maxed && !isLetterActive && shopItems[3].unlocked && clicker.Score >= shopItems[3].prices[shopItems[3].index])
         {
             switch (shopItems[3].index)
             {
                 case 0:
-                    clicker.gain += 50;
+                    clicker.Gain += 50;
                     break;
                 case 1:
-                    clicker.gain += 100;
+                    clicker.Gain += 100;
                     break;
                 case 2:
-                    clicker.gain += 250;
+                    clicker.Gain += 250;
                     break;
                 case 3:
-                    clicker.gain += 500;
+                    clicker.Gain += 500;
                     break;
                 case 4:
-                    clicker.gain += 800;
+                    clicker.Gain += 800;
                     break;
                 case 5:
-                    clicker.gain += 1000;
+                    clicker.Gain += 1000;
                     shopItems[4].unlocked = true;
                     break;
                 case 6:
-                    clicker.gain += 1250;
+                    clicker.Gain += 1250;
                     break;
                 case 7:
-                    clicker.gain += 1500;
+                    clicker.Gain += 1500;
                     break;
                 case 8:
-                    clicker.gain += 2000;
+                    clicker.Gain += 2000;
                     break;
                 case 9:
-                    clicker.gain += 3000;
+                    clicker.Gain += 3000;
                     shopItems[3].maxed = true;
                     break;
             }
@@ -514,7 +333,7 @@ public class Upgrades : MonoBehaviour
     
     public void Friends()
     {
-        if (!shopItems[4].maxed && shopItems[4].unlocked && clicker.Score >= shopItems[4].prices[shopItems[4].index])
+        if (!shopItems[4].maxed && !isLetterActive && shopItems[4].unlocked && clicker.Score >= shopItems[4].prices[shopItems[4].index])
         {
             switch (shopItems[4].index)
             {
@@ -544,39 +363,39 @@ public class Upgrades : MonoBehaviour
    
     public void Mint()
     {
-        if (!shopItems[5].maxed && shopItems[5].unlocked && clicker.Score >= shopItems[5].prices[shopItems[5].index])
+        if (!shopItems[5].maxed && !isLetterActive && shopItems[5].unlocked && clicker.Score >= shopItems[5].prices[shopItems[5].index])
         {
             switch (shopItems[5].index)
             {
                 case 0:
-                    clicker.gain += 500;
+                    clicker.Gain += 500;
                     break;
                 case 1:
-                    clicker.gain += 700;
+                    clicker.Gain += 700;
                     break;
                 case 2:
-                    clicker.gain += 1000;
+                    clicker.Gain += 1000;
                     break;
                 case 3:
-                    clicker.gain += 1400;
+                    clicker.Gain += 1400;
                     break;
                 case 4:
-                    clicker.gain += 2000;
+                    clicker.Gain += 2000;
                     break;
                 case 5:
-                    clicker.gain += 2600;
+                    clicker.Gain += 2600;
                     break;
                 case 6:
-                    clicker.gain += 3100;
+                    clicker.Gain += 3100;
                     break;
                 case 7:
-                    clicker.gain += 4000;
+                    clicker.Gain += 4000;
                     break;
                 case 8:
-                    clicker.gain += 4500;
+                    clicker.Gain += 4500;
                     break;
                 case 9:
-                    clicker.gain += 6000;
+                    clicker.Gain += 6000;
                     shopItems[5].maxed = true;
                     break;
             }
@@ -602,7 +421,7 @@ public class Upgrades : MonoBehaviour
         if (clicker.Score >= specialShopItems[0].prices[specialShopItems[0].index] && specialShopItems[0].unlocked)
         {
             clicker.Score = 0;
-            clicker.gain = 0;
+            clicker.Gain = 0;
             StartCoroutine(BadEnding());
         }
         else
@@ -616,7 +435,7 @@ public class Upgrades : MonoBehaviour
         if (clicker.Score >= specialShopItems[1].prices[specialShopItems[1].index] && specialShopItems[1].unlocked)
         {
             clicker.Score = 0;
-            clicker.gain = 0;
+            clicker.Gain = 0;
             StartCoroutine(GoodEnding());
         }
         else
@@ -686,145 +505,143 @@ public class Upgrades : MonoBehaviour
     {
         switch (upgradesBoughtCount)
         {
-            case 1:
-                break;
             case 2:
                 letterAnims[3].SetTrigger("send1");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 3:
                 letterAnims[5].SetTrigger("send1");
-                break;
-            case 4:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 5:
                 letterAnims[1].SetTrigger("send1");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 6:
                 letterAnims[2].SetTrigger("send1");
-                break;
-            case 7:
-                break;
-            case 8:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 9:
                 letterAnims[0].SetTrigger("send1");
-                break;
-            case 10:
-                break;
-            case 11:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 12:
                 letterAnims[5].SetTrigger("send2");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 13:
                 letterAnims[5].SetTrigger("send3");
-                break;
-            case 14:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 15:
                 letterAnims[3].SetTrigger("send4");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 16:
                 letterAnims[2].SetTrigger("send2");
-                break;
-            case 17:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 18:
                 letterAnims[0].SetTrigger("send2");
-                break;
-            case 19:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 20:
                 letterAnims[4].SetTrigger("send1");
-                break;
-            case 21:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 22:
                 letterAnims[2].SetTrigger("send3");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 23:
                 letterAnims[3].SetTrigger("send3");
-                break;
-            case 24:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 25:
                 letterAnims[1].SetTrigger("send2");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 26:
                 letterAnims[4].SetTrigger("send2");
-                break;
-            case 27:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 28:
                 letterAnims[0].SetTrigger("send3");
-                break;
-            case 29:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 30:
                 letterAnims[1].SetTrigger("send3");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 31:
                 letterAnims[4].SetTrigger("send5");
-                break;
-            case 32:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 33:
                 letterAnims[5].SetTrigger("send4");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 34:
                 letterAnims[5].SetTrigger("send5");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 35:
                 letterAnims[5].SetTrigger("send6");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 36:
                 letterAnims[4].SetTrigger("send4");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 37:
                 letterAnims[2].SetTrigger("send7");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 38:
                 letterAnims[3].SetTrigger("send5");
-                break;
-            case 39:
-                break;
-            case 40:
-                letterAnims[2].SetTrigger("send3");
-                break;
-            case 41:
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 42:
                 letterAnims[1].SetTrigger("send4");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 43:
                 letterAnims[2].SetTrigger("send4");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 44:
                 letterAnims[2].SetTrigger("send5");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 45:
                 letterAnims[2].SetTrigger("send6");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 46:
                 letterAnims[0].SetTrigger("send4");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 47:
                 letterAnims[3].SetTrigger("send6");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 48:
                 letterAnims[4].SetTrigger("send6");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 49:
                 letterAnims[3].SetTrigger("send7");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 50:
                 letterAnims[4].SetTrigger("send3");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
             case 51:
                 letterAnims[4].SetTrigger("send7");
+                envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
         }
-        envelopeAudioSource.PlayOneShot(envelopeSound);
     }
 
     private void UpdateUI()

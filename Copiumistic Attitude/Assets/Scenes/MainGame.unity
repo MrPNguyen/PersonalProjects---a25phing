@@ -349,7 +349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &37092732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ded5ddf29c9e544681b4b5dfaa6867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeactivateLetter
+  upgrades: {fileID: 1091683873}
 --- !u!1 &48362525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
-  gain: 0
+  autoGain: 0
+  Gain: 0
   scoreText: {fileID: 1722306438}
   speechBubbles: {fileID: 7080680191810877121, guid: 4b922611a51e58e4bb02edf4ac7a236d, type: 3}
   duration: 2
@@ -2561,7 +2563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1388, y: 0}
+  m_AnchoredPosition: {x: 1390, y: 0}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435379521
@@ -2826,6 +2828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ded5ddf29c9e544681b4b5dfaa6867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeactivateLetter
+  upgrades: {fileID: 1091683873}
 --- !u!95 &473353599
 Animator:
   serializedVersion: 7
@@ -3333,7 +3336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1388, y: 0}
+  m_AnchoredPosition: {x: 1390, y: 0}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526698378
@@ -5617,6 +5620,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 1281938555}
   globalVolume: {fileID: 1316691185}
   duration: 1
+  isLetterActive: 0
   cat: {fileID: 893006005}
   audioSource: {fileID: 943257726}
   envelopeAudioSource: {fileID: 1977424238}
@@ -5906,7 +5910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1388, y: 0}
+  m_AnchoredPosition: {x: 1390, y: 0}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199256711
@@ -6931,7 +6935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1388, y: 0}
+  m_AnchoredPosition: {x: 1390, y: 0}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377918160
@@ -7272,7 +7276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1388, y: 0}
+  m_AnchoredPosition: {x: 1390, y: 0}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471578001
@@ -8147,7 +8151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1656136322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8203,6 +8207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ded5ddf29c9e544681b4b5dfaa6867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeactivateLetter
+  upgrades: {fileID: 1091683873}
 --- !u!1 &1669199169
 GameObject:
   m_ObjectHideFlags: 0
@@ -8675,7 +8680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1388, y: 0}
+  m_AnchoredPosition: {x: 1390, y: 0}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715298683
@@ -9078,7 +9083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1793925784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9134,6 +9139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ded5ddf29c9e544681b4b5dfaa6867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeactivateLetter
+  upgrades: {fileID: 1091683873}
 --- !u!1 &1799511098
 GameObject:
   m_ObjectHideFlags: 0
@@ -10370,7 +10376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2028743451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10426,6 +10432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ded5ddf29c9e544681b4b5dfaa6867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeactivateLetter
+  upgrades: {fileID: 1091683873}
 --- !u!1 &2059563435
 GameObject:
   m_ObjectHideFlags: 0
@@ -10518,7 +10525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2068482541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10574,6 +10581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ded5ddf29c9e544681b4b5dfaa6867c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeactivateLetter
+  upgrades: {fileID: 1091683873}
 --- !u!1 &2088071148
 GameObject:
   m_ObjectHideFlags: 0

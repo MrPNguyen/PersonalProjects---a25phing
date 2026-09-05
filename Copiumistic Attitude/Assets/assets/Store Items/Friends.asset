@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   index: 0
   name: Friends
-  prices: e803000088130000581b000010270000983a0000a86100003075000060ea0000a086010040420f00
+  prices: b8880000409c000060ea0000803801001873010038c10100d0fb0100f049020090d0030040420f00
   description: Become famous in no time! automate your production.
   unlocked: 0
   maxed: 0

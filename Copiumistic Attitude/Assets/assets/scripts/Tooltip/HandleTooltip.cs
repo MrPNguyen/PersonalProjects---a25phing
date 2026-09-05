@@ -10,7 +10,6 @@ public class HandleTooltip : MonoBehaviour,
     public void OnPointerEnter(PointerEventData eventData)
     {
         TooltipUI.Instance.Show(item, item.index, item.unlocked, item.maxed);
-        Debug.Log("OnPointerEnter");
     }
 
     public void OnPointerExit(PointerEventData eventData)

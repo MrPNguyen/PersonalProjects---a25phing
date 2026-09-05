@@ -8,8 +8,9 @@ using Random = UnityEngine.Random;
 
 public class Clicker : MonoBehaviour
 {
-    public float Score;
-    public int gain;
+    public double Score;
+    public double autoGain;
+    public int Gain;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject speechBubbles;
     [SerializeField] private float duration;
@@ -17,13 +18,13 @@ public class Clicker : MonoBehaviour
 
     private void Start()
     {
-        gain = 1;
+        Gain = 1;
         Score = 0f;
     }
 
     private void Update()
     {
-        scoreText.text = Mathf.FloorToInt(Score).ToString();
+        scoreText.text = Math.Floor(Score).ToString();
         if (Score < 0)
         {
             Score = 0;
@@ -32,7 +33,7 @@ public class Clicker : MonoBehaviour
 
     public void ScoreGain()
     {
-        Score += gain;
+        Score += Gain;
         scoreText.text = Score.ToString();
         SpawnSpeechBubbles();
     }
