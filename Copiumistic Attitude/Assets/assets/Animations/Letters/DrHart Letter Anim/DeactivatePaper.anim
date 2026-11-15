@@ -205,7 +205,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: DeactivatePaper
+    functionName: PaperIsInactive
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

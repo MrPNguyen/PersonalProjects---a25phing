@@ -16,5 +16,5 @@ MonoBehaviour:
   name: The Door
   prices: 00e1f505
   description: Freedom.
-  unlocked: 0
+  unlocked: 1
   maxed: 0

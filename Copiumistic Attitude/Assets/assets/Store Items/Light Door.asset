@@ -16,5 +16,5 @@ MonoBehaviour:
   name: The Second Door
   prices: 00c2eb0b
   description: Accept the help. It's going to be ok.
-  unlocked: 0
+  unlocked: 1
   maxed: 0

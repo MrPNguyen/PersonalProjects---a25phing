@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,10 @@ public class Clicker : MonoBehaviour
     [SerializeField] private GameObject speechBubbles;
     [SerializeField] private float duration;
     [SerializeField] private float riseAmount;
+    [SerializeField] private List<Sprite> speechBubblesNeutralList;
+    
+    [SerializeField] private List<Sprite> speechBubblesNegativeList;
+    public List<Sprite> speechBubblesPositiveList;
 
     private void Start()
     {
@@ -62,7 +67,37 @@ public class Clicker : MonoBehaviour
         
         Image img = text.GetComponent<Image>();
         float startOpacity = img.color.a;
+        
 
+        int rand =  Random.Range(0, 3);
+        if (speechBubblesPositiveList.Count > 0)
+        {
+            if (rand == 0)
+            {
+                img.sprite = speechBubblesNegativeList[Random.Range(0, speechBubblesNegativeList.Count - 1)];
+            }
+            else if (rand == 1)
+            {
+                img.sprite = speechBubblesNeutralList[Random.Range(0, speechBubblesNeutralList.Count - 1)];
+            }
+            else
+            {
+                img.sprite = speechBubblesPositiveList[Random.Range(0, speechBubblesPositiveList.Count - 1)];
+            }
+        }
+        else
+        {
+            if (rand == 0)
+            {
+                img.sprite = speechBubblesNegativeList[Random.Range(0, speechBubblesNegativeList.Count - 1)];
+            }
+            else if (rand == 1)
+            {
+                img.sprite = speechBubblesNeutralList[Random.Range(0, speechBubblesNeutralList.Count - 1)];
+            }
+        }
+        
+        
         float time = 0;
         while (time < duration)
         {

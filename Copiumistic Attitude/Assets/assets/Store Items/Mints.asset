@@ -17,5 +17,5 @@ MonoBehaviour:
   prices: 983a0000a8610000c8af000060ea000080380100c0d4010000f40100580f0200f0490200400d0300
   description: Delicious mints to calm the mind! helps you concentrate to generate
     more thoughts per click.
-  unlocked: 0
+  unlocked: 1
   maxed: 0

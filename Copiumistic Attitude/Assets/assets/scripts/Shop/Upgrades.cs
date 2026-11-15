@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -138,7 +138,7 @@ public class Upgrades : MonoBehaviour
             }
             clicker.Score += clicker.autoGain;
 
-            bubbletimer += clicker.autoGain;
+            bubbletimer += clicker.autoGain / 1000;
 
             if (bubbletimer >= 1f)
             {
@@ -532,6 +532,7 @@ public class Upgrades : MonoBehaviour
             case 13:
                 letterAnims[5].SetTrigger("send3");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
+                clicker.speechBubblesPositiveList.RemoveAt(0);
                 break;
             case 15:
                 letterAnims[3].SetTrigger("send4");
@@ -564,6 +565,7 @@ public class Upgrades : MonoBehaviour
             case 26:
                 letterAnims[4].SetTrigger("send2");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
+                clicker.speechBubblesPositiveList.RemoveAt(0);
                 break;
             case 28:
                 letterAnims[0].SetTrigger("send3");
@@ -601,6 +603,9 @@ public class Upgrades : MonoBehaviour
                 letterAnims[3].SetTrigger("send5");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
                 break;
+            case 39:
+                clicker.speechBubblesPositiveList.RemoveAt(0);
+                break;
             case 42:
                 letterAnims[1].SetTrigger("send4");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
@@ -616,6 +621,7 @@ public class Upgrades : MonoBehaviour
             case 45:
                 letterAnims[2].SetTrigger("send6");
                 envelopeAudioSource.PlayOneShot(envelopeSound);
+                clicker.speechBubblesPositiveList.RemoveAt(0);
                 break;
             case 46:
                 letterAnims[0].SetTrigger("send4");

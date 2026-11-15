@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Friends
   prices: b8880000409c000060ea0000803801001873010038c10100d0fb0100f049020090d0030040420f00
   description: Become famous in no time! automate your production.
-  unlocked: 0
+  unlocked: 1
   maxed: 0
