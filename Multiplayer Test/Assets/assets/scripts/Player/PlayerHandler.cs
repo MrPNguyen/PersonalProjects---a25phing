@@ -8,8 +8,8 @@ public class PlayerHandler : MonoBehaviour
 {
     [Header("Information")]
     [SerializeField] private GameObject[] spawnPoints;
-    [SerializeField] private List<Sprite> sprites;
-    [SerializeField] private List<RuntimeAnimatorController> animators;
+    //[SerializeField] private List<Sprite> sprites;
+    //[SerializeField] private List<RuntimeAnimatorController> animators;
     [HideInInspector] public List<GameObject> players;
     
     [Header("References")]
@@ -29,24 +29,45 @@ public class PlayerHandler : MonoBehaviour
         {
             players[i].tag = $"Player{i + 1}";
         }
-        players[0].name = "Hasse";
-        players[1].name = "Gösta";
-        players[2].name = "Ulla";
-        players[3].name = "Kerstin";
-        
-        players[0].layer = LayerMask.NameToLayer(players[0].name);
-        players[1].layer = LayerMask.NameToLayer(players[1].name);
-        players[2].layer = LayerMask.NameToLayer(players[2].name);
-        players[3].layer = LayerMask.NameToLayer(players[3].name);
-        
+
+        if (players.Count == 2)
+        {
+            players[0].name = "Hasse";
+            players[1].name = "Gösta";
+            
+            players[0].layer = LayerMask.NameToLayer(players[0].name);
+            players[1].layer = LayerMask.NameToLayer(players[1].name);
+        }
+        else if (players.Count == 3)
+        {
+            players[0].name = "Hasse";
+            players[1].name = "Gösta";
+            players[2].name = "Ulla";
+            
+            players[0].layer = LayerMask.NameToLayer(players[0].name);
+            players[1].layer = LayerMask.NameToLayer(players[1].name);
+            players[2].layer = LayerMask.NameToLayer(players[2].name);
+        }
+        else if (players.Count == 4)
+        {
+            players[0].name = "Hasse";
+            players[1].name = "Gösta";
+            players[2].name = "Ulla";
+            players[3].name = "Kerstin";
+            
+            players[0].layer = LayerMask.NameToLayer(players[0].name);
+            players[1].layer = LayerMask.NameToLayer(players[1].name);
+            players[2].layer = LayerMask.NameToLayer(players[2].name);
+            players[3].layer = LayerMask.NameToLayer(players[3].name);
+        }
     }
     void Start()
     {
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             players[i].transform.position = spawnPoints[i].transform.position;
-            players[i].gameObject.GetComponent<SpriteRenderer>().sprite = sprites[i];
-            players[i].gameObject.GetComponent<Animator>().runtimeAnimatorController = animators[i];
+            //players[i].gameObject.GetComponent<SpriteRenderer>().sprite = sprites[i];
+            //layers[i].gameObject.GetComponent<Animator>().runtimeAnimatorController = animators[i];
         }
     }
 }
